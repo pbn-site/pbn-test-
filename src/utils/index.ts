@@ -97,6 +97,5 @@ export function convertToJSONObject(model: any) {
 
 export const getFullPathAsset = (path: string) => {
     let url = process.env.NEXT_PUBLIC_ASSET_PREFIX + path;
-    console.log("url ", url);
     return url;
 };
