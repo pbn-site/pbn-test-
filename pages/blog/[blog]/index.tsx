@@ -1,11 +1,11 @@
 import { GetStaticPaths } from "next";
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
-import Layout from "../../components/layout";
-import Post from "../../components/post";
-import { IPost } from "../../models/Post";
-import { convertToJSONObject } from "../../utils";
-import { readAllFile, readContentFile } from "../../utils/FileUtils";
+import Layout from "../../../components/layout";
+import Post from "../../../components/post";
+import { IPost } from "../../../models/Post";
+import { convertToJSONObject } from "../../../utils";
+import { readAllFile, readContentFile } from "../../../utils/FileUtils";
 
 const BlogPage = ({ post }: { post: IPost }) => {
     return (
