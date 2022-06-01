@@ -89,8 +89,10 @@ const FeedDetail: React.FC<PropsFeedDetail> = ({
                     </div>
                 </div>
                 <div className={styles.images}>
-                    <img
+                    <Image
+                        alt="image"
                         src={getFullPathAsset("/images/default.png")}
+                        objectFit="cover"
                         width={100}
                         height={100}
                     />
