@@ -9,7 +9,7 @@ import Image from "next/image";
 import Layout from "../components/layout";
 import ArrowDownIcon from "../components/Icon/ArrowDown";
 import { readAllFile, readAllPost, readContentFile } from "../utils/FileUtils";
-import { convertToJSONObject } from "../utils";
+import { convertToJSONObject, getFullPathAsset } from "../utils";
 import { IPost } from "../models/Post";
 import ContentHome from "../components/content-home";
 
@@ -31,7 +31,9 @@ const Page = ({ posts }: { posts: IPost[] }) => {
                         <div className={styles.right}>
                             <Image
                                 alt="mail-icon"
-                                src="/images/banner-home.png"
+                                src={getFullPathAsset(
+                                    "/images/banner-home.png"
+                                )}
                                 width="300"
                                 height="300"
                             />

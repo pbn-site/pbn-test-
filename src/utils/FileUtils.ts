@@ -6,7 +6,7 @@ var markdown = require("markdown").markdown;
 const TEXT_SPLIT = "---";
 
 export const readAllFile = () => {
-    const directoryAppInfos = path.join(process.cwd(), "data");
+    const directoryAppInfos = path.join(process.cwd(), "src/data");
     return fs.readdirSync(directoryAppInfos).map((file) => {
         return file.replace(".md", "");
     });
@@ -15,7 +15,7 @@ export const readAllFile = () => {
 export const readContentFile = async (fileName: string) => {
     const directoryAppInfos = path.join(
         process.cwd(),
-        "data/" + fileName + ".md"
+        "src/data/" + fileName + ".md"
     );
     let content = fs.readFileSync(directoryAppInfos, "utf8");
     // console.log("content ", content);

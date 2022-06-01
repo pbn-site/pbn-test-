@@ -1,17 +1,14 @@
-import { GetStaticPaths } from "next";
-import React from "react";
-import ReactHtmlParser from "react-html-parser";
-
-import Container from "@mui/material/Container";
-import styles from "./Index.module.scss";
 import { Button } from "@mui/material";
+import Container from "@mui/material/Container";
 import Image from "next/image";
-import { IPost } from "../../models/Post";
-import Layout from "../../components/layout";
+import React from "react";
 import ContentHome from "../../components/content-home";
 import ArrowDownIcon from "../../components/Icon/ArrowDown";
-import { readAllPost } from "../../utils/FileUtils";
+import Layout from "../../components/layout";
+import { IPost } from "../../models/Post";
 import { convertToJSONObject } from "../../utils";
+import { readAllPost } from "../../utils/FileUtils";
+import styles from "./Index.module.scss";
 
 const Page = ({ posts }: { posts: IPost[] }) => {
     return (

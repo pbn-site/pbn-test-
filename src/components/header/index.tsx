@@ -2,6 +2,7 @@ import { Container, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { getFullPathAsset } from "../../utils";
 import styles from "./Header.module.scss";
 
 const Header = () => {
@@ -18,7 +19,12 @@ const Header = () => {
             />
             */}
             <Link href="/">
-                <Image alt="mail-icon" src={srcLogo} width="16" height="16" />
+                <Image
+                    alt="mail-icon"
+                    src={getFullPathAsset(srcLogo)}
+                    width="16"
+                    height="16"
+                />
             </Link>
         </Container>
     );

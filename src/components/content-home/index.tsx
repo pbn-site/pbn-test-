@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IPost } from "../../models/Post";
+import { getFullPathAsset } from "../../utils";
 
 import styles from "./Feed.module.scss";
 
@@ -90,7 +91,7 @@ const FeedDetail: React.FC<PropsFeedDetail> = ({
                 <div className={styles.images}>
                     <Image
                         alt="image"
-                        src="/images/default.png"
+                        src={getFullPathAsset("/images/default.png")}
                         objectFit="cover"
                         width={100}
                         height={100}

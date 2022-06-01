@@ -94,3 +94,9 @@ export const isProdWeb = () => {
 export function convertToJSONObject(model: any) {
     return JSON.parse(JSON.stringify(model));
 }
+
+export const getFullPathAsset = (path: string) => {
+    let url = process.env.NEXT_PUBLIC_ASSET_PREFIX + path;
+    console.log("url ", url);
+    return url;
+};
