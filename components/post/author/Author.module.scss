@@ -1,0 +1,28 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
+.author {
+  display: flex;
+  align-items: center;
+  padding-top: 18px;
+  .name {
+    margin-right: 24px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #2d3748;
+  }
+  .date {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #718096;
+  }
+}
+
+@include breakpoint-sm {
+  .author {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

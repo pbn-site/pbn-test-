@@ -1,0 +1,28 @@
+.container {
+    // padding: 25px 0 20px 0;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    background: white;
+    a {
+        align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+        justify-content: center;
+        height: 48px;
+
+        a {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+    .imgParent {
+        img,
+        source {
+            transition: unset !important;
+        }
+    }
+}
