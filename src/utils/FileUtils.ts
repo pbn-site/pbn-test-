@@ -40,8 +40,9 @@ export const readContentFile = async (fileName: string) => {
     // console.log("description ", description);
     // console.log("contentHTML ", contentHTML);
     let post = new Post({
+        title: "THis is title",
         content: contentHTML,
-        description: description,
+        description: "This is description",
         date: new Date(),
         slug: fileName,
     });
