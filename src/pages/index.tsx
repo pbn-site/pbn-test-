@@ -1,17 +1,14 @@
-import { GetStaticPaths } from "next";
-import React from "react";
-import ReactHtmlParser from "react-html-parser";
-
-import Container from "@mui/material/Container";
-import styles from "./Index.module.scss";
 import { Button } from "@mui/material";
-import Image from "next/image";
-import Layout from "../components/layout";
-import ArrowDownIcon from "../components/Icon/ArrowDown";
-import { readAllFile, readAllPost, readContentFile } from "../utils/FileUtils";
-import { convertToJSONObject, getFullPathAsset } from "../utils";
-import { IPost } from "../models/Post";
+import Container from "@mui/material/Container";
+import React from "react";
+import ImageComponent from "../components/common/Image";
 import ContentHome from "../components/content-home";
+import ArrowDownIcon from "../components/Icon/ArrowDown";
+import Layout from "../components/layout";
+import { IPost } from "../models/Post";
+import { convertToJSONObject } from "../utils";
+import { readAllPost } from "../utils/FileUtils";
+import styles from "./Index.module.scss";
 
 const Page = ({ posts }: { posts: IPost[] }) => {
     return (
@@ -20,23 +17,13 @@ const Page = ({ posts }: { posts: IPost[] }) => {
                 <Container maxWidth="lg">
                     <div className={styles.homepageContainer}>
                         <div className={styles.left}>
-                            <div className={styles.title}>
-                                Worksheet Zone Blog
-                            </div>
+                            <div className={styles.title}>Worksheet Zone Blog</div>
                             <div className={styles.text}>
-                                Everything you Need to Know to Get Better on
-                                your Learning Progress
+                                Everything you Need to Know to Get Better on your Learning Progress
                             </div>
                         </div>
                         <div className={styles.right}>
-                            <Image
-                                alt="banner"
-                                src={getFullPathAsset(
-                                    "/images/banner-home.png"
-                                )}
-                                width="300"
-                                height="300"
-                            />
+                            <ImageComponent src={"/images/banner-home.png"} alt={"banner"} />
                         </div>
                     </div>
                     <div>

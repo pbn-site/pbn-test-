@@ -3,9 +3,9 @@
     background-color: #212121;
     padding: 80px 0;
 
-    // @media screen and (max-width: 768px) {
-    //     pa
-    // }
+    @media screen and (max-width: 768px) {
+        padding: 58px 0;
+    }
 
     .worksheetIconContainer {
         display: flex;
@@ -30,8 +30,8 @@
     .footerSubscribeContainer {
         display: flex;
         .mailIconContainer {
-            display: flex;
-            flex-direction: column;
+            // display: flex;
+            // flex-direction: column;
 
             .mailIcon {
                 height: 56px;
@@ -46,11 +46,23 @@
             }
 
             .subscribeText {
+                padding-top: 26px;
                 width: 308px;
-                font-size: 14px;
-                line-height: 21px;
-                margin-top: 6px;
                 color: #ffffff;
+                .subscribeTextTitle {
+                    font-weight: 700;
+                    font-size: 30px;
+                    line-height: 36px;
+                    letter-spacing: 0.1em;
+                    margin: 0;
+                }
+
+                .subscribeTextContent {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 21px;
+                    margin-top: 6px;
+                }
             }
 
             .sendEmailContainer {
@@ -80,6 +92,7 @@
         }
         .socialContainer {
             display: flex;
+            gap: 24px;
             .socialIcon {
                 height: 24px;
                 width: 24px;
@@ -90,6 +103,7 @@
 
     .socialContainerMobile {
         display: flex;
+        gap: 24px;
         .socialIconMobile {
             height: 24px;
             width: 24px;
@@ -118,10 +132,9 @@
         text-decoration: none;
     }
 
-    .logo{
+    .logo {
         @media screen and (max-width: 768px) {
-         text-align: center;
-            
+            text-align: center;
         }
     }
 }

@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import Container from "@mui/material/Container";
-import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import ImageComponent from "../../components/common/Image";
 import ContentHome from "../../components/content-home";
 import ArrowDownIcon from "../../components/Icon/ArrowDown";
 import Layout from "../../components/layout";
@@ -17,21 +17,13 @@ const Page = ({ posts }: { posts: IPost[] }) => {
                 <Container maxWidth="lg">
                     <div className={styles.homepageContainer}>
                         <div className={styles.left}>
-                            <div className={styles.title}>
-                                Worksheet Zone Blog
-                            </div>
+                            <div className={styles.title}>Worksheet Zone Blog</div>
                             <div className={styles.text}>
-                                Everything you Need to Know to Get Better on
-                                your Learning Progress
+                                Everything you Need to Know to Get Better on your Learning Progress
                             </div>
                         </div>
                         <div className={styles.right}>
-                            <Image
-                                alt="banner"
-                                src="/images/banner-home.png"
-                                width="300"
-                                height="300"
-                            />
+                            <ImageComponent src={"/images/banner-home.png"} alt={"banner"} />
                         </div>
                     </div>
                     <div>

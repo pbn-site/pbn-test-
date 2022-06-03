@@ -2,14 +2,16 @@
 @import "../../styles/scss/_mixins";
 
 .post {
+  letter-spacing: 0.02em;
+
   .content {
     @include margin-auto();
   }
   iframe {
-    display: block;       /* iframes are inline by default */
+    display: block; /* iframes are inline by default */
     background: #000;
-    border: none;         /* Reset default border */
-    height: 100vh;        /* Viewport-relative units */
+    border: none; /* Reset default border */
+    height: 100vh; /* Viewport-relative units */
     width: 100vw;
   }
   .footer {
