@@ -2,6 +2,7 @@ import { Container, Grid, TextField, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { getFullPathAsset } from "../../utils";
 import styles from "./Footer.module.scss";
 const Footer = () => {
     const isMobile = useMediaQuery("(max-width:768px)");
@@ -23,7 +24,7 @@ const Footer = () => {
                             <Link href="/" className={styles.logo}>
                                 <Image
                                     alt="logo"
-                                    src="/images/logo.png"
+                                    src={getFullPathAsset("/images/logo.png")}
                                     width="16"
                                     height="16"
                                 />
@@ -34,7 +35,7 @@ const Footer = () => {
                             <div>
                                 <Image
                                     alt="dmca"
-                                    src="/images/footer_under_logo.png"
+                                    src={getFullPathAsset("/images/footer_under_logo.png")}
                                     className={styles.footer_under_logo}
                                     width={100}
                                     height={100}
@@ -143,11 +144,10 @@ const Footer = () => {
                         /> */}
                         <Link href="/">
                             <Image
-                                alt="mail-icon"
-                                src="/images/logo.png"
+                                alt="logo"
+                                src={getFullPathAsset("/images/logo.png")}
                                 width={16}
                                 height={16}
-                                className={styles.mailIcon}
                             />
                         </Link>
                         {/* </a> */}
@@ -185,15 +185,15 @@ const Footer = () => {
                     >
                         <div className={styles.mailIconContainer}>
                             <Image
-                                alt="mail-icon"
-                                src="/images/mail.png"
+                                alt={("mail-icon")}
+                                src={getFullPathAsset("/images/mail.png")}
                                 width="100"
                                 height="100"
                                 className={styles.mailIcon}
                             />
                             <Image
                                 alt="subscribe-icon"
-                                src="/images/subscribe.png"
+                                src={getFullPathAsset("/images/subscribe.png")}
                                 width="100"
                                 height="100"
                                 objectFit="contain"

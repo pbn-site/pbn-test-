@@ -20,7 +20,7 @@ const Header = () => {
             */}
             <Link href="/">
                 <Image
-                    alt="mail-icon"
+                    alt="logo"
                     src={getFullPathAsset(srcLogo)}
                     width="16"
                     height="16"

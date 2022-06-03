@@ -16,7 +16,7 @@ const Content: React.FC<Props> = ({ body, title, date }: Props) => {
     return (
         <div className={styles.content}>
             <Image
-                alt="mail-icon"
+                alt="image"
                 src="/images/default.png"
                 className={styles.image}
                 width={100}

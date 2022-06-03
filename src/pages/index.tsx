@@ -30,7 +30,7 @@ const Page = ({ posts }: { posts: IPost[] }) => {
                         </div>
                         <div className={styles.right}>
                             <Image
-                                alt="mail-icon"
+                                alt="banner"
                                 src={getFullPathAsset(
                                     "/images/banner-home.png"
                                 )}

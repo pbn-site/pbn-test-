@@ -27,7 +27,7 @@ const Page = ({ posts }: { posts: IPost[] }) => {
                         </div>
                         <div className={styles.right}>
                             <Image
-                                alt="mail-icon"
+                                alt="banner"
                                 src="/images/banner-home.png"
                                 width="300"
                                 height="300"
