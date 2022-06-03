@@ -10,9 +10,9 @@ const Header = () => {
 
     return (
         <Container className={styles.container}>
-            <Link href="/">
+            <a href="/">
                 <ImageComponent src={srcLogo} alt={"logo"} />
-            </Link>
+            </a>
         </Container>
     );
 };

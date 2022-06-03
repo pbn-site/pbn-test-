@@ -12,13 +12,13 @@ const Footer = () => {
                 <Container>
                     <Grid container>
                         <Grid item xs={12} md={4}>
-                            <Link href="/blog">
+                            <a href="/">
                                 <ImageComponent
                                     src={`/images/logo.png`}
                                     alt={"logo"}
                                     className={styles.logo}
                                 />
-                            </Link>
+                            </a>
                             {/* </a> */}
                         </Grid>
                         <Grid item xs={6} md={4}>
