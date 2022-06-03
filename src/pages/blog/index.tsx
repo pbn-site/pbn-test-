@@ -1,13 +1,13 @@
 import { Button } from "@mui/material";
 import Container from "@mui/material/Container";
-import React from "react";
-import ImageComponent from "../components/common/Image";
-import ContentHome from "../components/content-home";
-import ArrowDownIcon from "../components/Icon/ArrowDown";
-import Layout from "../components/layout";
-import { IPost } from "../models/Post";
-import { convertToJSONObject } from "../utils";
-import { readAllPost } from "../utils/FileUtils";
+import React, { useState } from "react";
+import ImageComponent from "../../components/common/Image";
+import ContentHome from "../../components/content-home";
+import ArrowDownIcon from "../../components/Icon/ArrowDown";
+import Layout from "../../components/layout";
+import { IPost } from "../../models/Post";
+import { convertToJSONObject } from "../../utils";
+import { readAllPost } from "../../utils/FileUtils";
 import styles from "./Index.module.scss";
 
 const Page = ({ posts }: { posts: IPost[] }) => {

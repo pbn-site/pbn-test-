@@ -12,24 +12,10 @@ const Post: React.FC<Props> = ({ content }: Props) => {
     // // const { tagSlugs, slug } = post.fields;
     // const { tags, title, date } = post.frontmatter;
     return (
-        <Container>
-            {/* <Link className={styles.button} to="/">
-                All Articles
-            </Link> */}
-            {/* <Author /> */}
-
+        <Container className={styles.post}>
             <div className={styles.content}>
                 <Content date={new Date()} body={content} title={""} />
             </div>
-            {/* 
-            <div className={styles.footer}>
-                <Meta date={date} />
-                {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
-            </div> */}
-
-            {/* <div className={styles.comments}>
-                <Comments postSlug={slug} postTitle={post.frontmatter.title} />
-            </div> */}
         </Container>
     );
 };
