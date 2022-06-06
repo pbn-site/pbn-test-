@@ -10,3 +10,4 @@ if [ -z "$NEXT_PUBLIC_ASSET_PREFIX" ] || [ $len -gt 0 ]; then
     mkdir -p $path/images
     cp -R images/  $path/images
 fi 
+yarn && yarn build
