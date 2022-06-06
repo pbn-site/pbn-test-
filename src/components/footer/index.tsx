@@ -80,7 +80,9 @@ const Footer = () => {
                             <div className={styles.mailIconContainer}>
                                 <div className={styles.sendEmailContainer}>
                                     <TextField
-                                        className={styles.footerSentEmailTextField}
+                                        className={
+                                            styles.footerSentEmailTextField
+                                        }
                                         size={"small"}
                                         placeholder={"Your Email Address"}
                                         variant="standard"
@@ -89,7 +91,8 @@ const Footer = () => {
                                             borderTopColor: "transparent",
                                             borderLeftColor: "transparent",
                                             borderRightColor: "transparent",
-                                            borderBottomColor: " rgba(255, 255, 255, 0.52)",
+                                            borderBottomColor:
+                                                " rgba(255, 255, 255, 0.52)",
                                         }}
                                         InputProps={{ disableUnderline: true }}
                                         inputProps={{
@@ -98,7 +101,9 @@ const Footer = () => {
                                             },
                                         }}
                                     />
-                                    <div className={styles.footerSendButton}>Send</div>
+                                    <div className={styles.footerSendButton}>
+                                        Send
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +119,10 @@ const Footer = () => {
                 <Grid container>
                     <Grid item md={4}>
                         <a href="/">
-                            <ImageComponent src={`/images/logo.png`} alt={"logo"} />
+                            <ImageComponent
+                                src={`/images/logo.png`}
+                                alt={"logo"}
+                            />
                         </a>
                     </Grid>
                     <Grid item xs={isMobile ? 6 : 4} md={4}>
@@ -131,8 +139,12 @@ const Footer = () => {
                         >
                             Facebook
                         </Link>
-                        <Link href="https://twitter.com/WorksheetZone">Twitter</Link>
-                        <Link href="https://www.instagram.com/worksheetzone/">Instagram</Link>
+                        <Link href="https://twitter.com/WorksheetZone">
+                            Twitter
+                        </Link>
+                        <Link href="https://www.instagram.com/worksheetzone/">
+                            Instagram
+                        </Link>
                     </Grid>
                 </Grid>
                 <div className={styles.footerSubscribeContainer}>
@@ -145,13 +157,18 @@ const Footer = () => {
                         }}
                     >
                         <div className={styles.mailIconContainer}>
-                            <ImageComponent src={`/images/mail.png`} alt={"mail-icon"} />
+                            <ImageComponent
+                                src={`/images/mail.png`}
+                                alt={"mail-icon"}
+                            />
 
                             <div className={styles.subscribeText}>
-                                <p className={styles.subscribeTextTitle}>SUBSCRIBE</p>
+                                <p className={styles.subscribeTextTitle}>
+                                    SUBSCRIBE
+                                </p>
                                 <p className={styles.subscribeTextContent}>
-                                    Be first to know about the latest update and access free
-                                    materials only for subscribers!
+                                    Be first to know about the latest update and
+                                    access free materials only for subscribers!
                                 </p>
                             </div>
                             <div className={styles.sendEmailContainer}>
@@ -165,7 +182,8 @@ const Footer = () => {
                                         borderTopColor: "transparent",
                                         borderLeftColor: "transparent",
                                         borderRightColor: "transparent",
-                                        borderBottomColor: " rgba(255, 255, 255, 0.52)",
+                                        borderBottomColor:
+                                            " rgba(255, 255, 255, 0.52)",
                                     }}
                                     InputProps={{ disableUnderline: true }}
                                     inputProps={{
@@ -174,7 +192,9 @@ const Footer = () => {
                                         },
                                     }}
                                 />
-                                <div className={styles.footerSendButton}>Send</div>
+                                <div className={styles.footerSendButton}>
+                                    Send
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -188,18 +208,24 @@ const Footer = () => {
                         }}
                     >
                         <div className={styles.socialContainer}>
-                            <a href="/about-us">
-                                <ImageComponent src={`/images/twitter.png`} alt={"icon twitters"} />
-                            </a>
-                            <a href="/contact">
+                            <Link href="/about-us">
+                                <ImageComponent
+                                    src={`/images/twitter.png`}
+                                    alt={"icon twitters"}
+                                />
+                            </Link>
+                            <Link href="/contact">
                                 <ImageComponent
                                     src={`/images/facebook.png`}
                                     alt={"icon facebook"}
                                 />
-                            </a>
-                            <a href="/privacy">
-                                <ImageComponent src={`/images/youtube.png`} alt={"icon youtube"} />
-                            </a>
+                            </Link>
+                            <Link href="/privacy">
+                                <ImageComponent
+                                    src={`/images/youtube.png`}
+                                    alt={"icon youtube"}
+                                />
+                            </Link>
                         </div>
                     </div>
                 </div>
