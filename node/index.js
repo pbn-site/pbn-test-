@@ -1,11 +1,102 @@
 const axios = require("axios");
 const fs = require("fs");
+var xml2js = require("xml2js");
+let parser = new xml2js.Parser();
+const BASE_URL = "https://worksheetzone.org/";
+const FILE_NAME = "public/sitemap.xml";
+
 const { convert } = require("html-to-text");
 var markdown = require("markdown").markdown;
 const BASE_URL_CMS = "https://pbn.passemall.com/";
 const TEXT_SPLIT = "---";
 const BASE_PATH =
     "/Users/manhhoang/workspace/react/work-sheet-zone-blog/content/blog/";
+
+const LIST_URLS = [];
+
+const writeFileSiteMap = (content) => {
+    let result = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">`;
+    result += content;
+    result += `</urlset>`;
+    fs.writeFileSync(FILE_NAME, result, {
+        flag: "w",
+    });
+};
+
+const genFileSiteMap = () => {
+    if (!fs.existsSync(FILE_NAME)) {
+        let content = genSiteMapItem(BASE_URL, getLastMod());
+        writeFileSiteMap(content);
+    }
+};
+
+const appendUrlToSiteMap = async () => {
+    let xmlData = await fs.readFileSync(FILE_NAME, { encoding: "utf-8" });
+    parser.parseString(xmlData, async (err, result) => {
+        const urls = result.urlset.url;
+        // console.log("urls ", result.urlset);
+        let siteMapItemsExit = [];
+        for (let urlData of urls) {
+            siteMapItemsExit.push({
+                loc: urlData.loc[0],
+                lastmod: urlData.lastmod[0],
+            });
+        }
+        for (let url of LIST_URLS) {
+            let exit = siteMapItemsExit.find((e) => e.loc.includes(url));
+            if (!exit) {
+                siteMapItemsExit.push({
+                    loc: BASE_URL + url,
+                    lastmod: getLastMod(),
+                });
+            }
+        }
+        const siteMapItems = siteMapItemsExit.map(({ loc, lastmod }) => {
+            return genSiteMapItem(loc, lastmod);
+        });
+        writeFileSiteMap(siteMapItems.join(""));
+    });
+};
+
+const genSiteMapItem = (loc, lastmod) => {
+    return `<url>
+        <loc>${loc}</loc>
+        <lastmod>${lastmod}</lastmod>
+    </url>`;
+};
+
+const getNumberString = (number) => {
+    if (number < 10) {
+        return "0" + number;
+    }
+    return number;
+};
+
+const getLastMod = () => {
+    let currentDate = new Date(Date.now());
+    return (
+        currentDate.getFullYear() +
+        "-" +
+        getNumberString(currentDate.getMonth() + 1) +
+        "-" +
+        getNumberString(currentDate.getDate()) +
+        "T" +
+        getNumberString(currentDate.getHours()) +
+        ":" +
+        getNumberString(currentDate.getMinutes()) +
+        ":" +
+        getNumberString(currentDate.getSeconds()) +
+        "+07:00"
+    );
+};
+
+const processGenSiteMap = async () => {
+    console.log("LIST_URLS ", LIST_URLS);
+    if (LIST_URLS?.length) {
+        await genFileSiteMap();
+        await appendUrlToSiteMap();
+    }
+};
 
 const convertMDTOHTML = async () => {
     let content = await fs.readFileSync(
@@ -63,13 +154,12 @@ const processDescription = (description, post_name) => {
 };
 
 const getAllPost = async () => {
-    let res = await axios.get(
-        "https://cms.worksheetzone.org/wp-json/v1/get-posts"
-    );
+    let res = await axios.get(BASE_URL_CMS + "wp-json/v1/get-posts");
     let allData = res.data;
     console.log("data ", allData.length);
     for (let i = 0; i < allData.length; i++) {
         let { post_name, post_content } = allData[i];
+        LIST_URLS.push(post_name);
         if (allData[i].post_content_filtered) {
             fs.writeFileSync(
                 BASE_PATH + post_name + ".md",
@@ -104,46 +194,6 @@ const getAllPost = async () => {
     }
 };
 
-const uploadAllFile = async () => {
-    let filenames = await fs.readdirSync(BASE_PATH);
-    let allFileNum = filenames.length;
-    let allUrlError = [];
-    for (let i = 0; i < allFileNum; i++) {
-        let filename = filenames[i];
-        let path = BASE_PATH + filename;
-        if (!filename.startsWith(".")) {
-            // console.log("path ", path, " i = ", i, " total ", allFileNum);
-            let content = await fs.readFileSync(path, "utf-8");
-            let title = content.split("\n")[1].replace('title: "', "");
-            title = title.trim();
-            title = title.slice(0, title.length - 1);
-            //     .slice(title.length - 1, title.length);
-            console.log(title);
-            var data = JSON.stringify({
-                post_title: title,
-                post_content: content,
-                post_name: filename,
-                post_status: "draft",
-                post_type: "post",
-            });
-            var config = {
-                method: "post",
-                url: "https://cms.worksheetzone.org/wp-json/v1/save-posts",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                data: data,
-            };
-
-            let res = await axios(config);
-            if (res.status != 200) {
-                allUrlError.push(filename);
-            }
-        }
-    }
-    console.log("allUrlError ", allUrlError);
-};
-
 const startDeploy = async () => {
     let timeString = "1 hour ago";
     let res = await axios.get(
@@ -151,9 +201,13 @@ const startDeploy = async () => {
     );
     console.log("res.data.length ", res.data.length);
     if (res.data.length || true) {
-        getAllPost();
+        await getAllPost();
     }
 };
-// convertMDTOHTML();
-startDeploy();
-// uploadAllFile();
+
+const main = async () => {
+    await startDeploy();
+    await processGenSiteMap();
+};
+
+main();
