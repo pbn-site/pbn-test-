@@ -33,15 +33,17 @@ buildAndStartProject() {
 }
 
 setupNginx() {
-    echo 'start setup Nginx'
-    cp $BASE_PATH_NGINX/template.org $BASE_PATH_NGINX/$DOMAIN
-    # cp `$BASE_PATH_NGINX/template.org` `$BASE_PATH_NGINX/$DOMAIN.com`
-    sed -i s/template_domain.org/$DOMAIN/g $BASE_PATH_NGINX/$DOMAIN
-    sed -i s/port_domain/$PORT/g $BASE_PATH_NGINX/$DOMAIN
-    sudo ln -s $BASE_PATH_NGINX/$DOMAIN /etc/nginx/sites-enabled/
-    nginx -t
-    #sudo certbot --nginx -d $DOMAIN -d $DOMAIN
-    echo 'done setup Nginx'
+    if [ $PORT -gt 0 ]; then
+        echo 'start setup Nginx'
+        cp $BASE_PATH_NGINX/template.org $BASE_PATH_NGINX/$DOMAIN
+        # cp `$BASE_PATH_NGINX/template.org` `$BASE_PATH_NGINX/$DOMAIN.com`
+        sed -i s/template_domain.org/$DOMAIN/g $BASE_PATH_NGINX/$DOMAIN
+        sed -i s/port_domain/$PORT/g $BASE_PATH_NGINX/$DOMAIN
+        sudo ln -s $BASE_PATH_NGINX/$DOMAIN /etc/nginx/sites-enabled/
+        nginx -t
+        #sudo certbot --nginx -d $DOMAIN -d $DOMAIN
+        echo 'done setup Nginx'
+    fi
 }
 
 getPortForSite() {

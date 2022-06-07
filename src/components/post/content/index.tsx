@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getFullPathAsset, replaceYoutubeLink } from "../../../utils";
-import ImageComponent from "../../common/Image";
+import { replaceYoutubeLink } from "../../../utils";
 import styles from "./Content.module.scss";
 
 interface Props {
@@ -21,16 +20,19 @@ const Content: React.FC<Props> = ({ body, title, date }: Props) => {
     }, [useRef]);
     return (
         <div className={styles.content} ref={useRef}>
-            <ImageComponent
+            {/* <ImageComponent
                 src={`/images/default.png`}
                 alt={"image"}
                 widthProps={width}
                 heightProps="380"
-            />
+            /> */}
             {/* <img src={getFullPathAsset(`/images/default.png`)} alt="" /> */}
             <h1 className={styles.title}>{title}</h1>
             {/* <AuthorPost date={date}></AuthorPost> */}
-            <div className={styles.body} dangerouslySetInnerHTML={{ __html: formatBody }} />
+            <div
+                className={styles.body}
+                dangerouslySetInnerHTML={{ __html: formatBody }}
+            />
         </div>
     );
 };

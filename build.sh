@@ -16,6 +16,6 @@ yarn && yarn build
 if [ -z "$PORT" ]; then
     pm2 restart $DOMAIN
 else
-    pm2 start yarn --name "$DOMAIN" -- start -$PORT
+    pm2 start yarn --name "$DOMAIN" -- start -p $PORT
 fi
 pm2 save 
