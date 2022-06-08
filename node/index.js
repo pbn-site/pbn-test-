@@ -12,7 +12,7 @@ const BASE_PATH = "src/data/";
 
 const LIST_URLS = [];
 const myArgs = process.argv.slice(2);
-const DOMAIN = myArgs[myArgs.length - 1] + "/";
+const DOMAIN = "https://" + myArgs[myArgs.length - 1] + "/";
 console.log("nodejs DOMAIN ", DOMAIN);
 
 const writeFileSiteMap = (content) => {
@@ -93,7 +93,7 @@ const getLastMod = () => {
 
 const processGenSiteMap = async () => {
     console.log("LIST_URLS ", LIST_URLS);
-    if (LIST_URLS?.length) {
+    if (LIST_URLS.length) {
         await genFileSiteMap();
         await appendUrlToSiteMap();
     }
