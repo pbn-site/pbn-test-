@@ -2241,7 +2241,7 @@ header.header-2 nav {
 	display: inline-block;
 	text-align: center;
 	margin-bottom: 20px;
-	background: #3dc5df;
+	/* background: #3dc5df; */
 }
 .post-img img {
 	display: inline-block;

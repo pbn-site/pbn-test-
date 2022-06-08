@@ -3,15 +3,18 @@ import React from "react";
 import Layout from "../../components/layout";
 import Post from "../../components/post";
 import { IPost } from "../../models/Post";
+import ThemeMedicalSingle from "../../theme-medical/single-page";
 import { convertToJSONObject } from "../../utils";
 import { readAllFile, readContentFile } from "../../utils/FileUtils";
 
 const BlogPage = ({ post }: { post: IPost }) => {
-    return (
-        <Layout title={`${post.title}  `} description={post.description}>
-            <Post content={post.content} />
-        </Layout>
-    );
+    return <ThemeMedicalSingle post={post} />;
+    // return (
+    //     <Layout title={`${post.title}  `} description={post.description}>
+    //         {/* <Post content={post.content} /> */}
+
+    //     </Layout>
+    // );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
