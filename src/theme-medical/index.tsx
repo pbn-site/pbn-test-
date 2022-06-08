@@ -13,11 +13,17 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                 <Header />
 
                 <div className="content fix-nav-space">
-                    <section className="sub-banner" data-stellar-background-ratio="0.5">
+                    <section
+                        className="sub-banner"
+                        data-stellar-background-ratio="0.5"
+                    >
                         <div className="overlay">
                             <div className="container">
                                 <h3>Blog</h3>
-                                <p>Provide useful information on health and wellness</p>
+                                <p>
+                                    Provide useful information on health and
+                                    wellness
+                                </p>
 
                                 <ol className="breadcrumb">
                                     <li>
@@ -40,7 +46,7 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                                 })}
                             </ul>
 
-                            <nav>
+                            {/* <nav>
                                 <ul className="pagination">
                                     <li className="active">
                                         <a href="#">1</a>
@@ -61,7 +67,7 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                                         <a href="#">9</a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav> */}
                         </div>
                     </section>
 
@@ -71,7 +77,10 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                                 <li className="col-md-3">
                                     <i className="ion-ios-location-outline"></i>
                                     <h5>Address</h5>
-                                    <p>1800 Abbot Kinney Blvd. Unit D & E Venice, CA 90291</p>
+                                    <p>
+                                        1800 Abbot Kinney Blvd. Unit D & E
+                                        Venice, CA 90291
+                                    </p>
                                 </li>
 
                                 <li className="col-md-3">
