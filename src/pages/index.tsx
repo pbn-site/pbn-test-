@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import React from "react";
 import ImageComponent from "../components/common/Image";
@@ -9,21 +9,28 @@ import { IPost } from "../models/Post";
 import { convertToJSONObject } from "../utils";
 import { readAllPost } from "../utils/FileUtils";
 import styles from "./Index.module.scss";
-
+import ThemeMedical from "../theme-medical";
 const Page = ({ posts }: { posts: IPost[] }) => {
+    return <ThemeMedical />;
     return (
         <Layout title={""} description={""}>
             <div className={styles.homepage}>
                 <Container maxWidth="lg">
                     <div className={styles.homepageContainer}>
                         <div className={styles.left}>
-                            <div className={styles.title}>Worksheet Zone Blog</div>
+                            <div className={styles.title}>
+                                Worksheet Zone Blog
+                            </div>
                             <div className={styles.text}>
-                                Everything you Need to Know to Get Better on your Learning Progress
+                                Everything you Need to Know to Get Better on
+                                your Learning Progress
                             </div>
                         </div>
                         <div className={styles.right}>
-                            <ImageComponent src={"/images/banner-home.png"} alt={"banner"} />
+                            <ImageComponent
+                                src={"/images/banner-home.png"}
+                                alt={"banner"}
+                            />
                         </div>
                     </div>
                     <div>
