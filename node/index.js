@@ -2,17 +2,18 @@ const axios = require("axios");
 const fs = require("fs");
 var xml2js = require("xml2js");
 let parser = new xml2js.Parser();
-const BASE_URL = "https://worksheetzone.org/";
 const FILE_NAME = "public/sitemap.xml";
 
 const { convert } = require("html-to-text");
 var markdown = require("markdown").markdown;
 const BASE_URL_CMS = "https://pbn.passemall.com/";
 const TEXT_SPLIT = "---";
-const BASE_PATH =
-    "/Users/manhhoang/workspace/react/work-sheet-zone-blog/content/blog/";
+const BASE_PATH = "src/data/";
 
 const LIST_URLS = [];
+const myArgs = process.argv.slice(2);
+const DOMAIN = myArgs[myArgs.length - 1] + "/";
+console.log("nodejs DOMAIN ", DOMAIN);
 
 const writeFileSiteMap = (content) => {
     let result = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">`;
@@ -25,7 +26,7 @@ const writeFileSiteMap = (content) => {
 
 const genFileSiteMap = () => {
     if (!fs.existsSync(FILE_NAME)) {
-        let content = genSiteMapItem(BASE_URL, getLastMod());
+        let content = genSiteMapItem(DOMAIN, getLastMod());
         writeFileSiteMap(content);
     }
 };
@@ -46,7 +47,7 @@ const appendUrlToSiteMap = async () => {
             let exit = siteMapItemsExit.find((e) => e.loc.includes(url));
             if (!exit) {
                 siteMapItemsExit.push({
-                    loc: BASE_URL + url,
+                    loc: DOMAIN + url,
                     lastmod: getLastMod(),
                 });
             }
@@ -159,38 +160,29 @@ const getAllPost = async () => {
     console.log("data ", allData.length);
     for (let i = 0; i < allData.length; i++) {
         let { post_name, post_content } = allData[i];
-        LIST_URLS.push(post_name);
-        if (allData[i].post_content_filtered) {
-            fs.writeFileSync(
-                BASE_PATH + post_name + ".md",
-                allData[i].post_content_filtered
-            );
-            continue;
-        }
-        post_content = allData[i].post_content_filtered?.length
-            ? allData[i].post_content_filtered
-            : post_content;
-        // const html = "<h1>Hello World</h1>";
-        let arr = post_content.split("---");
-        let description = convert(arr[1], {});
-        description = processDescription(description, post_name);
-        // let newArray = description.split("slug:");
-        // console.log(newArray[0]);
-        // console.log("--------");
-        // console.log(newArray[1]);
-        // description = description.replace("slug: ", "");
-        post_content = convert(arr[2], {});
-        // console.log("arr 1 ", description);
-        // let newPostContent = NodeHtmlMarkdown.translate(
-        //     /* html */ post_content,
-        //     /* options (optional) */ {},
-        //     /* customTranslators (optional) */ undefined,
-        //     /* customCodeBlockTranslators (optional) */ undefined,
-        // );
         fs.writeFileSync(
-            BASE_PATH + post_name + ".md",
-            "--- \n" + description + "\n--- \n" + post_content
+            BASE_PATH + post_name + ".json",
+            JSON.stringify(allData[i])
         );
+        LIST_URLS.push(post_name);
+        // if (allData[i].post_content_filtered) {
+        //     fs.writeFileSync(
+        //         BASE_PATH + post_name + ".md",
+        //         allData[i].post_content_filtered
+        //     );
+        //     continue;
+        // }
+        // post_content = allData[i].post_content_filtered?.length
+        //     ? allData[i].post_content_filtered
+        //     : post_content;
+        // let arr = post_content.split("---");
+        // let description = convert(arr[1], {});
+        // description = processDescription(description, post_name);
+        // post_content = convert(arr[2], {});
+        // fs.writeFileSync(
+        //     BASE_PATH + post_name + ".md",
+        //     "--- \n" + description + "\n--- \n" + post_content
+        // );
     }
 };
 

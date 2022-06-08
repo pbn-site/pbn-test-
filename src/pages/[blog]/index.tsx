@@ -17,8 +17,8 @@ const BlogPage = ({ post }: { post: IPost }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
     let allFiles = readAllFile();
     const paths: any = allFiles.map((file) => {
-        if (file.endsWith(".md")) {
-            file = file.replace(".md", "");
+        if (file.endsWith(".json")) {
+            file = file.replace(".json", "");
         }
         return {
             params: {
