@@ -2,7 +2,7 @@ import Head from "next/head";
 import Script from "next/script";
 import React from "react";
 
-const SEO = () => {
+const SEO = ({ title, description, keywords }) => {
     return (
         <Head>
             <meta charset="utf-8" />
@@ -10,16 +10,10 @@ const SEO = () => {
                 name="viewport"
                 content="width=device-width, initial-scale=1"
             />
-            <title>Medikal - Health Care &amp; Medical HTML5 Template</title>
-            <meta
-                name="keywords"
-                content="HTML5,CSS3,HTML,Template,Multi-Purpose,M_Adnan,Corporate Theme,Medikal,Health Care,Medikal - Health Care & Medical HTML5 Template"
-            />
-            <meta
-                name="description"
-                content="Medikal - Health Care & Medical HTML5 Template"
-            />
-            <meta name="author" content="M_Adnan" />
+            <title>{title}</title>
+            <meta name="keywords" content={keywords} />
+            <meta name="description" content={description} />
+            {/* <meta name="author" content="M_Adnan" /> */}
 
             {/* <!-- FONTS ONLINE --> */}
             <link

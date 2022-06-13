@@ -10,7 +10,12 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
     return (
         <>
             <div id="wrap">
-                <Header />
+                <Header
+                    title="Provide useful information on health and
+                                    wellness"
+                    description="Provide useful information on health and wellness"
+                    keywords=""
+                />
 
                 <div className="content fix-nav-space">
                     <section

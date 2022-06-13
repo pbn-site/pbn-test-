@@ -7,7 +7,11 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
     return (
         <>
             <div id="wrap">
-                <Header />
+                <Header
+                    title={post.title}
+                    description={post.content.slice(0, 100)}
+                    keywords=""
+                />
 
                 <div className="content fix-nav-space">
                     <section

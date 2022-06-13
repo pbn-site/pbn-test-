@@ -1,16 +1,25 @@
 import { useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
+import { IPost } from "../../models/Post";
 import SEO from "../../theme-medical/seo";
 import ImageComponent from "../common/Image";
 
-const Header = () => {
+const Header = ({
+    title,
+    description,
+    keywords,
+}: {
+    title: string;
+    description: string;
+    keywords: string;
+}) => {
     const [open, setOpen] = useState(false);
     const isMobile = useMediaQuery("(max-width: 768px)");
     const srcLogo = isMobile ? "/images/logo-mobile.png" : "/images/logo.png";
 
     return (
         <>
-            <SEO />
+            <SEO title={title} description={description} keywords={""} />
             <header>
                 <div className="container">
                     <div className="logo">
