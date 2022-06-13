@@ -1258,6 +1258,12 @@ header.header-2 nav {
 }
 .dep-detail-page .img-single {
 	position: relative;
+	width: 100%;
+	aspect-ratio: 57 / 16;
+}
+.dep-detail-page .img-single > * {
+	width: 100% !important;
+	height: 100% !important;
 }
 .dep-detail-page {
 	padding: 120px 0;
@@ -1277,6 +1283,10 @@ header.header-2 nav {
 }
 .dep-detail-page .detail-sec div h2 {
 	font-size: 30px;
+		padding-top: 24px;
+}
+.dep-detail-page .detail-sec div h2:first-child {
+	padding-top: 0px;
 }
 .dep-detail-page .detail-sec h6 {
 	margin-top: 30px;
@@ -2248,7 +2258,13 @@ header.header-2 nav {
 	display: inline-block;
 	text-align: center;
 	margin-bottom: 20px;
+	width: 100%;
+	aspect-ratio: 44 / 21;
 	/* background: #3dc5df; */
+}
+.post-img > * {
+width: 100% !important;
+height: 100% !important;
 }
 .post-img img {
 	display: inline-block;
