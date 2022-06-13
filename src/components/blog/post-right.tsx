@@ -7,8 +7,11 @@ const PostContentRight = ({ post }: { post: IPost }) => {
         <li className="row">
             <div className="col-md-7 text-center">
                 <div className="post-img">
-                    <ImageComponent src="images/blog-img-large-1.jpg" className="img-responsive" />
-                    {/* <img className="img-responsive" src="images/blog-img-large-1.jpg" alt="" /> */}
+                    {/* <ImageComponent src="images/blog-img-large-1.jpg" className="img-responsive" /> */}
+                    <ImageComponent
+                        src={!!post.image ? post.image : "images/blog-img-large-1.jpg"}
+                        className="img-responsive"
+                    />
                 </div>
             </div>
 

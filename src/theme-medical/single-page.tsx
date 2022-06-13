@@ -1,8 +1,7 @@
 import React from "react";
-import { IPost } from "../models/Post";
-import SEO from "./seo";
+import ImageComponent from "../components/common/Image";
 import Header from "../components/header";
-import Footer from "../components/footer";
+import { IPost } from "../models/Post";
 
 const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
     return (
@@ -35,9 +34,13 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                             <div className="row">
                                 <div className="col-sm-12">
                                     <div className="img-single">
-                                        <img
+                                        <ImageComponent
                                             className="img-responsive"
-                                            src="images/blog-img-large-6.jpg"
+                                            src={
+                                                !!post.image
+                                                    ? post.image
+                                                    : "images/blog-img-large-1.jpg"
+                                            }
                                             alt=""
                                         />
                                     </div>
