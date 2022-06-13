@@ -41,9 +41,9 @@ const Header = () => {
                                 <a href="/about-us">About us </a>
                             </li>
 
-                            <li>
+                            {/* <li>
                                 <a href="/contact">Contact</a>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                 </div>

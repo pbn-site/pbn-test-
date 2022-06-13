@@ -13,18 +13,24 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                 <Header />
 
                 <div className="content fix-nav-space">
-                    <section className="sub-banner" data-stellar-background-ratio="0.5">
+                    <section
+                        className="sub-banner"
+                        data-stellar-background-ratio="0.5"
+                    >
                         <div className="overlay">
                             <div className="container">
                                 <h3>Blog</h3>
-                                <p>Provide useful information on health and wellness</p>
+                                <p>
+                                    Provide useful information on health and
+                                    wellness
+                                </p>
 
-                                <ol className="breadcrumb">
+                                {/* <ol className="breadcrumb">
                                     <li>
                                         <a href="#">Home</a>
                                     </li>
                                     <li className="active">Blog</li>
-                                </ol>
+                                </ol> */}
                             </div>
                         </div>
                     </section>

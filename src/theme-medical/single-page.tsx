@@ -10,19 +10,25 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                 <Header />
 
                 <div className="content fix-nav-space">
-                    <section className="sub-banner" data-stellar-background-ratio="0.5">
+                    <section
+                        className="sub-banner"
+                        data-stellar-background-ratio="0.5"
+                    >
                         <div className="overlay">
                             <div className="container">
                                 <h3>Blog</h3>
-                                <p>Provide useful information on health and wellness</p>
+                                <p>
+                                    Provide useful information on health and
+                                    wellness
+                                </p>
 
                                 <ol className="breadcrumb">
                                     <li>
                                         <a href="/">Home</a>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <a href="/">BLOG</a>
-                                    </li>
+                                    </li> */}
                                     <li className="active">BLOG DETAIL</li>
                                 </ol>
                             </div>
@@ -46,7 +52,11 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                                     </div>
 
                                     <div className="detail-sec">
-                                        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html: post.content,
+                                            }}
+                                        />
                                     </div>
 
                                     {/* <div className="stare-ev">
