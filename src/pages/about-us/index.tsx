@@ -284,7 +284,7 @@ const AboutScreen = () => {
                         </div>
                     </section>
 
-                    <section className="contact-info">
+                    {/* <section className="contact-info">
                         <div className="container">
                             <ul className="row">
                                 <li className="col-md-3">
@@ -313,10 +313,10 @@ const AboutScreen = () => {
                                 </li>
                             </ul>
                         </div>
-                    </section>
+                    </section> */}
                 </div>
 
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </>
     );
