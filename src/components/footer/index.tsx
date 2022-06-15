@@ -6,231 +6,132 @@ import styles from "./Footer.module.scss";
 const Footer = () => {
     const isMobile = useMediaQuery("(max-width:768px)");
 
-    if (isMobile) {
-        return (
-            <div className={styles.footer}>
-                <Container>
-                    <Grid container>
-                        <Grid item xs={12} md={4}>
-                            <a href="/">
-                                <ImageComponent
-                                    src={`/images/logo.png`}
-                                    alt={"logo"}
-                                    className={styles.logo}
-                                />
-                            </a>
-                            {/* </a> */}
-                        </Grid>
-                        <Grid item xs={6} md={4}>
-                            <div>
-                                <ImageComponent
-                                    src={`/images/footer_under_logo.png`}
-                                    alt={"logo"}
-                                />
-                            </div>
-                        </Grid>
-                        <Grid item xs={6} md={4}>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flex: 1,
-                                    width: "100%",
-                                    justifyContent: "center",
-                                    alignItems: "flex-end",
-                                }}
-                            >
-                                <div className={styles.socialContainerMobile}>
-                                    <Link href="/about-us">
-                                        <ImageComponent
-                                            src={`/images/twitters.png`}
-                                            alt={"icon twitters"}
-                                        />
-                                    </Link>
-                                    <Link href="/contact">
-                                        <ImageComponent
-                                            src={`/images/facebook.png`}
-                                            alt={"icon facebook"}
-                                        />
-                                    </Link>
-                                    <Link href="/privacy">
-                                        <ImageComponent
-                                            src={`/images/youtube.png`}
-                                            alt={"icon youtube"}
-                                        />
-                                    </Link>
-                                </div>
-                            </div>
-                        </Grid>
-                        <Grid item xs={4} md={4}>
-                            <h3>Company</h3>
-                            <Link href="/about-us">About Us</Link>
-                            <Link href="/contact">Contact</Link>
-                            <Link href="/privacy">Privacy</Link>
-                        </Grid>
-                    </Grid>
-                    <div className={styles.footerSubscribeContainer}>
-                        <div
-                            style={{
-                                display: "flex",
-                                flex: 1,
-                                width: "100%",
-                                flexDirection: "column",
-                            }}
-                        >
-                            <div className={styles.mailIconContainer}>
-                                <div className={styles.sendEmailContainer}>
-                                    <TextField
-                                        className={
-                                            styles.footerSentEmailTextField
-                                        }
-                                        size={"small"}
-                                        placeholder={"Your Email Address"}
-                                        variant="standard"
-                                        style={{
-                                            border: "1px solid ",
-                                            borderTopColor: "transparent",
-                                            borderLeftColor: "transparent",
-                                            borderRightColor: "transparent",
-                                            borderBottomColor:
-                                                " rgba(255, 255, 255, 0.52)",
-                                        }}
-                                        InputProps={{ disableUnderline: true }}
-                                        inputProps={{
-                                            style: {
-                                                color: "#FFFFFF",
-                                            },
-                                        }}
-                                    />
-                                    <div className={styles.footerSendButton}>
-                                        Send
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Container>
-            </div>
-        );
-    }
-
     return (
-        <div className={styles.footer}>
-            <Container>
-                <Grid container>
-                    <Grid item md={4}>
-                        <a href="/">
-                            <ImageComponent
-                                src={`/images/logo.png`}
-                                alt={"logo"}
-                            />
-                        </a>
-                    </Grid>
-                    <Grid item xs={isMobile ? 6 : 4} md={4}>
-                        <h3>Company</h3>
-                        <Link href="/about-us">About Us</Link>
-                        <Link href="/contact">Contact</Link>
-                        <Link href="/privacy">Privacy</Link>
-                    </Grid>
-                    <Grid item xs={isMobile ? 6 : 4} md={4}>
-                        <h3>Social</h3>
-                        <Link
-                            href="https://www.facebook.com/Worksheet-Zone-103291858875415"
-                            target="_blank"
-                        >
-                            Facebook
-                        </Link>
-                        <Link href="https://twitter.com/WorksheetZone">
-                            Twitter
-                        </Link>
-                        <Link href="https://www.instagram.com/worksheetzone/">
-                            Instagram
-                        </Link>
-                    </Grid>
-                </Grid>
-                <div className={styles.footerSubscribeContainer}>
-                    <div
-                        style={{
-                            display: "flex",
-                            flex: 1,
-                            width: "100%",
-                            flexDirection: "column",
-                        }}
-                    >
-                        <div className={styles.mailIconContainer}>
-                            <ImageComponent
-                                src={`/images/mail.png`}
-                                alt={"mail-icon"}
-                            />
+        <footer>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-3">
+                        <div className="latest-tweet">
+                            <h5>Latest tweets</h5>
+                            <ul>
+                                <li>
+                                    <p>
+                                        {/* <span>@medikal</span> Sweets and Bakers WordPress Theme' on
+                                        @EnvatoMarket by themefore
+                                        <a href="#."> http://t.co/we8Kf0</a> */}
+                                    </p>
+                                    <span className="date">
+                                        {" "}
+                                        - Thursday April 9, 2015
+                                    </span>
+                                </li>
 
-                            <div className={styles.subscribeText}>
-                                <p className={styles.subscribeTextTitle}>
-                                    SUBSCRIBE
-                                </p>
-                                <p className={styles.subscribeTextContent}>
-                                    Be first to know about the latest update and
-                                    access free materials only for subscribers!
-                                </p>
-                            </div>
-                            <div className={styles.sendEmailContainer}>
-                                <TextField
-                                    className={styles.footerSentEmailTextField}
-                                    size={"small"}
-                                    placeholder={"Your Email Address"}
-                                    variant="standard"
-                                    style={{
-                                        border: "1px solid ",
-                                        borderTopColor: "transparent",
-                                        borderLeftColor: "transparent",
-                                        borderRightColor: "transparent",
-                                        borderBottomColor:
-                                            " rgba(255, 255, 255, 0.52)",
-                                    }}
-                                    InputProps={{ disableUnderline: true }}
-                                    inputProps={{
-                                        style: {
-                                            color: "#FFFFFF",
-                                        },
-                                    }}
-                                />
-                                <div className={styles.footerSendButton}>
-                                    Send
-                                </div>
-                            </div>
+                                <li>
+                                    <p>
+                                        <span>@medikal</span> In hendrerit in
+                                        molestie consequat in{" "}
+                                        <a href="#."> http://t.co/we8Kf0</a>
+                                    </p>
+                                    <span className="date">
+                                        {" "}
+                                        - Thursday April 9, 2015
+                                    </span>
+                                </li>
+
+                                <li>
+                                    <p>
+                                        <span>@medikal</span> Duis autem vel eum
+                                        iriure
+                                        <span>@medikal</span> dolor in hendrerit
+                                        in molestie consequat{" "}
+                                        <a href="#."> http://t.co/we8Kf0</a>
+                                    </p>
+                                    <span className="date">
+                                        {" "}
+                                        - Thursday April 9, 2015
+                                    </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div
-                        style={{
-                            display: "flex",
-                            flex: 1,
-                            width: "100%",
-                            justifyContent: "flex-end",
-                            alignItems: "flex-end",
-                        }}
-                    >
-                        <div className={styles.socialContainer}>
-                            <Link href="/about-us">
-                                <ImageComponent
-                                    src={`/images/twitter.png`}
-                                    alt={"icon twitters"}
+
+                    <div className="col-md-6">
+                        <div className="small-info">
+                            <ImageComponent src="images/logo-white.png" />
+                            <p>
+                                We work in a friendly and efficient using the
+                                latest technologies and sharing our expertise to
+                                make a diagnosis and implement cutting-edge
+                                therapies.
+                            </p>
+                            <ul className="social_icons">
+                                <li className="facebook">
+                                    <a href="#.">
+                                        <i className="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li className="twitter">
+                                    <a href="#.">
+                                        <i className="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li className="linkedin">
+                                    <a href="#.">
+                                        <i className="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <h5>register newsletter</h5>
+                            <form>
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email here"
+                                    required
                                 />
-                            </Link>
-                            <Link href="/contact">
-                                <ImageComponent
-                                    src={`/images/facebook.png`}
-                                    alt={"icon facebook"}
-                                />
-                            </Link>
-                            <Link href="/privacy">
-                                <ImageComponent
-                                    src={`/images/youtube.png`}
-                                    alt={"icon youtube"}
-                                />
-                            </Link>
+                                <button type="submit"> Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div className="col-md-3">
+                        <div className="links text-right">
+                            <h5>Patient Guide</h5>
+                            <ul>
+                                <li>
+                                    <a href="#."> Choosing a doctor</a>
+                                </li>
+                                <li>
+                                    <a href="#."> Health journals</a>
+                                </li>
+                                <li>
+                                    <a href="#."> Insurance converage</a>
+                                </li>
+                                <li>
+                                    <a href="#."> Talking to your doctor</a>
+                                </li>
+                                <li>
+                                    <a href="#."> Medikal error</a>
+                                </li>
+                            </ul>
+
+                            <div className="timing">
+                                <h5>opening hours</h5>
+                                <p>
+                                    Mon to Fri <span> 8:00 am to 7:00pm</span>
+                                </p>
+                                <p>
+                                    Sun & Sat <span>9:00 am to 5:00pm</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </Container>
-        </div>
+            </div>
+
+            <div className="rights">
+                <p>© 2015 Medikal. Made with by M_Adnan </p>
+            </div>
+        </footer>
     );
 };
 

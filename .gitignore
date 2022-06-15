@@ -14,7 +14,8 @@
 
 # production
 /build
-
+/blog
+src/data
 # misc
 .DS_Store
 *.pem

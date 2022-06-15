@@ -38,9 +38,9 @@ const Layout: React.FC<Props> = ({
                     rel="stylesheet"
                 />
             </Helmet>
-            <Header></Header>
+            {/* <Header></Header> */}
             {children}
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 };

@@ -23,6 +23,7 @@ export const readContentFile = async (fileName: string) => {
         content: object.post_content,
         date: object.post_date,
         slug: object.post_name,
+        image: object.post_image
     });
 
     // const directoryAppInfos = path.join(
