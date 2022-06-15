@@ -3,17 +3,20 @@ const fs = require("fs");
 var xml2js = require("xml2js");
 let parser = new xml2js.Parser();
 const FILE_NAME = "public/sitemap.xml";
-
-const { convert } = require("html-to-text");
 var markdown = require("markdown").markdown;
-const BASE_URL_CMS = "https://pbn.passemall.com/";
 const TEXT_SPLIT = "---";
 const BASE_PATH = "src/data/";
 
 const LIST_URLS = [];
 const myArgs = process.argv.slice(2);
-const DOMAIN = "https://" + myArgs[myArgs.length - 1] + "/";
-console.log("nodejs DOMAIN ", DOMAIN);
+console.log("myArgs ", myArgs);
+const DOMAIN = "https://" + myArgs[0] + "/";
+const FORCE_NEW_DEPLOY = myArgs.length > 1 ? myArgs[1] : null;
+const IS_GEN_SITE_MAP = !DOMAIN.includes("worksheetzone");
+const BASE_URL_CMS = DOMAIN.includes("worksheetzone")
+    ? "https://cms.worksheetzone.org/"
+    : "https://pbn.passemall.com/";
+console.log("nodejs DOMAIN ", DOMAIN, " FORCE_NEW_DEPLOY ", FORCE_NEW_DEPLOY);
 
 const writeFileSiteMap = (content) => {
     let result = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">`;
@@ -188,18 +191,21 @@ const getAllPost = async () => {
 
 const startDeploy = async () => {
     let timeString = "1 hour ago";
-    let res = await axios.get(
-        BASE_URL_CMS + "wp-json/v1/check-has-posts?timeString=" + timeString
-    );
-    console.log("res.data.length ", res.data.length);
-    if (res.data.length || true) {
+    let url =
+        BASE_URL_CMS + "wp-json/v1/check-has-posts?timeString=" + timeString;
+    console.log("url ", url);
+    let res = await axios.get(url);
+    if (res.data.length || FORCE_NEW_DEPLOY) {
+        console.log("res.data.length ", res.data.length);
         await getAllPost();
     }
 };
 
 const main = async () => {
     await startDeploy();
-    await processGenSiteMap();
+    if (IS_GEN_SITE_MAP) {
+        await processGenSiteMap();
+    }
 };
 
 main();
