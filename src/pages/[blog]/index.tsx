@@ -9,7 +9,7 @@ import { readAllFile, readContentFile } from "../../utils/FileUtils";
 const BlogPage = ({ post }: { post: IPost }) => {
     return (
         <Layout title={`${post.title}  `} description={post.description}>
-            <Post content={post.content} />
+            <Post post={post} />
         </Layout>
     );
 };
