@@ -92,7 +92,6 @@ const getLastMod = () => {
 };
 
 const processGenSiteMap = async () => {
-    console.log("LIST_URLS ", LIST_URLS);
     if (LIST_URLS.length) {
         await genFileSiteMap();
         await appendUrlToSiteMap();
@@ -155,7 +154,9 @@ const processDescription = (description, post_name) => {
 };
 
 const getAllPost = async () => {
-    let res = await axios.get(BASE_URL_CMS + "wp-json/v1/get-posts");
+    let res = await axios.get(
+        BASE_URL_CMS + "wp-json/v1/get-posts?category_name=" + getCategoryName()
+    );
     let allData = res.data;
     console.log("data ", allData.length);
     for (let i = 0; i < allData.length; i++) {
@@ -188,13 +189,22 @@ const getAllPost = async () => {
 
 const startDeploy = async () => {
     let timeString = "1 hour ago";
-    let res = await axios.get(
-        BASE_URL_CMS + "wp-json/v1/check-has-posts?timeString=" + timeString
-    );
+    let url =
+        BASE_URL_CMS +
+        "wp-json/v1/check-has-posts?timeString=" +
+        timeString +
+        "&category_name=" +
+        getCategoryName();
+    let res = await axios.get(url);
     console.log("res.data.length ", res.data.length);
-    if (res.data.length || true) {
+    if (res.data.length) {
         await getAllPost();
     }
+};
+
+const getCategoryName = () => {
+    let name = DOMAIN.replace("https://", "").replace("/", "");
+    return name.substring(0, name.lastIndexOf("."));
 };
 
 const main = async () => {
