@@ -17,16 +17,16 @@ const SEO = ({ title, description, keywords }) => {
                 href="css/style.css"
                 rel="stylesheet"
                 type="text/css"
-                // media="print"
-                // onload="this.media='all'"
+                media="print"
+                onload="this.media='all'"
             />
 
             <link
                 href="css/bootstrap.min.css"
                 rel="stylesheet"
                 type="text/css"
-                media="print"
-                onload="this.media='all'"
+                // media="print"
+                // onload="this.media='all'"
             />
             <link
                 href="css/font-awesome.min.css"
