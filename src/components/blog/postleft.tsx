@@ -27,12 +27,10 @@ const PostContentLeft = ({ post }: { post: IPost }) => {
                         src={
                             !!post.image
                                 ? post.image
-                                : getFullPathAsset("images/blog-img-large-1.jpg")
+                                : getFullPathAsset("images/blog-img-large-1.webp")
                         }
                         className="img-responsive"
                     />
-
-                    {/* <img className="img-responsive" src="images/blog-img-large-2.jpg" alt="" /> */}
                 </div>
             </div>
         </li>

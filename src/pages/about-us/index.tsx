@@ -98,7 +98,7 @@ const AboutScreen = () => {
                                 <li className="col-sm-6 item-mas">
                                     <img
                                         className="img-responsive"
-                                        src="images/gallery-img-1.jpg"
+                                        src="images/gallery-img-1.webp"
                                         alt=""
                                     />
 
@@ -113,7 +113,7 @@ const AboutScreen = () => {
                                 <li className="col-sm-3 item-mas">
                                     <img
                                         className="img-responsive"
-                                        src="images/gallery-img-2.jpg"
+                                        src="images/gallery-img-2.webp"
                                         alt=""
                                     />
                                     <div className="over-gallery">
@@ -127,7 +127,7 @@ const AboutScreen = () => {
                                 <li className="col-sm-3 item-mas">
                                     <img
                                         className="img-responsive"
-                                        src="images/gallery-img-3.jpg"
+                                        src="images/gallery-img-3.webp"
                                         alt=""
                                     />
                                     <div className="over-gallery">
@@ -141,7 +141,7 @@ const AboutScreen = () => {
                                 <li className="col-sm-3 item-mas">
                                     <img
                                         className="img-responsive"
-                                        src="images/gallery-img-4.jpg"
+                                        src="images/gallery-img-4.webp"
                                         alt=""
                                     />
                                     <div className="over-gallery">
@@ -155,7 +155,7 @@ const AboutScreen = () => {
                                 <li className="col-sm-3 item-mas">
                                     <img
                                         className="img-responsive"
-                                        src="images/gallery-img-5.jpg"
+                                        src="images/gallery-img-5.webp"
                                         alt=""
                                     />
                                     <div className="over-gallery">

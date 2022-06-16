@@ -47,7 +47,7 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                                                 !!post.image
                                                     ? post.image
                                                     : getFullPathAsset(
-                                                          "images/blog-img-large-1.jpg"
+                                                          "images/blog-img-large-1.webp"
                                                       )
                                             }
                                             alt=""

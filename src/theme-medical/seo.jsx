@@ -12,28 +12,15 @@ const SEO = ({ title, description, keywords }) => {
             <meta name="description" content={description} />
             {/* <link href="css/main.css" rel="stylesheet" type="text/css" />
              */}
-            <link
-                href="css/main.css"
-                rel="stylesheet"
-                type="text/css"
-                media="print"
-                onload="this.media='all'"
-            />
+
             <link
                 href="css/style.css"
                 rel="stylesheet"
                 type="text/css"
-                media="print"
-                onload="this.media='all'"
+                // media="print"
+                // onload="this.media='all'"
             />
-            <link
-                href="css/responsive.css"
-                rel="stylesheet"
-                type="text/css"
-                media="print"
-                onload="this.media='all'"
-            />
-            {/* <link href="css/animate.css" rel="stylesheet" type="text/css" /> */}
+
             <link
                 href="css/bootstrap.min.css"
                 rel="stylesheet"
