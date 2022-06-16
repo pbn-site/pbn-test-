@@ -32,8 +32,8 @@ const SEO = ({ title, description, keywords }) => {
                 href="css/font-awesome.min.css"
                 rel="stylesheet"
                 type="text/css"
-                media="print"
-                onload="this.media='all'"
+                // media="print"
+                // onload="this.media='all'"
             />
             {/* <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" /> */}
             {/* <link
