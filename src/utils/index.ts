@@ -46,8 +46,9 @@ export const replaceYoutubeLink = (link: string, isMobile: boolean) => {
                 let lastIndex = arr[1].indexOf("target=");
                 let url = arr[1].substring(index + 5, lastIndex);
                 // console.log("url ", url);
-                let ifarmeTag = `<iframe width="${isMobile ? "100%" : "80%"
-                    }" height=${isMobile ? "200px" : "400px"} src=${url}></iframe>`;
+                let ifarmeTag = `<iframe width="${
+                    isMobile ? "100%" : "80%"
+                }" height=${isMobile ? "200px" : "400px"} src=${url}></iframe>`;
 
                 html = html.replace("<a" + arr[1], ifarmeTag);
                 // console.log("allTagA[i] ", html);
@@ -95,6 +96,11 @@ export function convertToJSONObject(model: any) {
 }
 
 export const getFullPathAsset = (path: string) => {
-    let url = (process.env.NEXT_PUBLIC_ASSET_PREFIX ? process.env.NEXT_PUBLIC_ASSET_PREFIX : "") + path;
+    let url =
+        (process.env.NEXT_PUBLIC_ASSET_PREFIX
+            ? process.env.NEXT_PUBLIC_ASSET_PREFIX
+            : "") + path;
+    console.log("url ", url);
+
     return url;
 };

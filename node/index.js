@@ -92,7 +92,6 @@ const getLastMod = () => {
 };
 
 const processGenSiteMap = async () => {
-    console.log("LIST_URLS ", LIST_URLS);
     if (LIST_URLS.length) {
         await genFileSiteMap();
         await appendUrlToSiteMap();
@@ -100,10 +99,7 @@ const processGenSiteMap = async () => {
 };
 
 const convertMDTOHTML = async () => {
-    let content = await fs.readFileSync(
-        BASE_PATH + "asvab_study_guide-2.md",
-        "utf-8"
-    );
+    let content = await fs.readFileSync(BASE_PATH + "asvab_study_guide-2.md", "utf-8");
     let contentHTML = content;
     let description = "";
     if (content.includes(TEXT_SPLIT)) {
@@ -111,10 +107,7 @@ const convertMDTOHTML = async () => {
         let infoArr = arr[1].split("\n");
         for (let i = 0; i < infoArr.length; i++) {
             if (infoArr[i].startsWith("description")) {
-                description = infoArr[i]
-                    .trim()
-                    .replace("description", "")
-                    .replace(': "', "");
+                description = infoArr[i].trim().replace("description", "").replace(': "', "");
                 description = description.substring(0, description.length - 1);
             }
         }
@@ -142,28 +135,20 @@ const processDescription = (description, post_name) => {
         // remove one line, starting at the first position
         afterSlug.splice(0, 2);
         // join the array back into a single string
-        return (
-            beforSlug.join("\n") +
-            "\n" +
-            'slug: "' +
-            post_name +
-            '"\n' +
-            afterSlug.join("\n")
-        );
+        return beforSlug.join("\n") + "\n" + 'slug: "' + post_name + '"\n' + afterSlug.join("\n");
     }
     return description;
 };
 
 const getAllPost = async () => {
-    let res = await axios.get(BASE_URL_CMS + "wp-json/v1/get-posts");
+    let res = await axios.get(
+        BASE_URL_CMS + "wp-json/v1/get-posts?category_name=" + getCategoryName()
+    );
     let allData = res.data;
     console.log("data ", allData.length);
     for (let i = 0; i < allData.length; i++) {
         let { post_name, post_content } = allData[i];
-        fs.writeFileSync(
-            BASE_PATH + post_name + ".json",
-            JSON.stringify(allData[i])
-        );
+        fs.writeFileSync(BASE_PATH + post_name + ".json", JSON.stringify(allData[i]));
         LIST_URLS.push(post_name);
         // if (allData[i].post_content_filtered) {
         //     fs.writeFileSync(
@@ -188,13 +173,22 @@ const getAllPost = async () => {
 
 const startDeploy = async () => {
     let timeString = "1 hour ago";
-    let res = await axios.get(
-        BASE_URL_CMS + "wp-json/v1/check-has-posts?timeString=" + timeString
-    );
+    let url =
+        BASE_URL_CMS +
+        "wp-json/v1/check-has-posts?timeString=" +
+        timeString +
+        "&category_name=" +
+        getCategoryName();
+    let res = await axios.get(url);
     console.log("res.data.length ", res.data.length);
     if (res.data.length || true) {
         await getAllPost();
     }
+};
+
+const getCategoryName = () => {
+    let name = DOMAIN.replace("https://", "").replace("/", "");
+    return name.substring(0, name.lastIndexOf("."));
 };
 
 const main = async () => {

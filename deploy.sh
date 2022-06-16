@@ -7,10 +7,11 @@ DIR_BLOG='src/data'
 if [ -d "$DIR_BLOG" ]; then
     totalFile=$(find "$DIR_BLOG" -maxdepth 1 -type f|wc -l)
     echo "Total file: $totalFile"
-    if [[ $totalFile -gt  0 ]]; then
-        yarn build
-        pm2 restart $DOMAIN
-    fi
+    ./build.sh $DOMAIN
+    # if [[ $totalFile -gt  0 ]]; then
+    #     yarn build
+    #     pm2 restart $DOMAIN
+    # fi
 fi
 
 
