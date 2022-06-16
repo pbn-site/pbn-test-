@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { IPost } from "../../models/Post";
+import { getFullPathAsset } from "../../utils";
 import ImageComponent from "../common/Image";
 import styles from "./Feed.module.scss";
 
@@ -79,7 +80,7 @@ const FeedDetail: React.FC<PropsFeedDetail> = ({
                 </div>
                 <div className={styles.images}>
                     <ImageComponent
-                        src={"/images/default.png"}
+                        src={getFullPathAsset("/images/default.png")}
                         alt="image"
                         heightProps={heightProps}
                     />

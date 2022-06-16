@@ -33,7 +33,6 @@ const Layout: React.FC<Props> = ({ children, title, description, socialImage = "
                     rel="stylesheet"
                 />
             </Helmet>
-            <Header></Header>
             {children}
             {/* <Footer></Footer> */}
         </div>

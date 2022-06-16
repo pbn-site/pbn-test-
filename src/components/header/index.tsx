@@ -1,7 +1,7 @@
-import { useMediaQuery } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React, { useState } from "react";
-import { IPost } from "../../models/Post";
 import SEO from "../../theme-medical/seo";
+import { getFullPathAsset } from "../../utils";
 import ImageComponent from "../common/Image";
 
 const Header = ({
@@ -24,7 +24,7 @@ const Header = ({
                 <div className="container">
                     <div className="logo">
                         <a href="/">
-                            <ImageComponent src="images/logo.png" />
+                            <ImageComponent src={getFullPathAsset("images/logo.png")} />
                         </a>
                     </div>
 
@@ -40,7 +40,7 @@ const Header = ({
                         <ul
                             className="ownmenu"
                             style={{
-                                display: open ? "block" : "",
+                                display: open ? "block" : "none",
                             }}
                         >
                             <li className="active">
