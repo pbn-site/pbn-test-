@@ -1,7 +1,8 @@
 // import { ServerStyleSheets } from "@material-ui/core/styles";
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main } from "next/document";
 import Script from "next/script";
 import React from "react";
+import DeferNextScript from "../components/DeferNextScript";
 
 class MyDocument extends Document {
     render() {
@@ -12,7 +13,7 @@ class MyDocument extends Document {
                 </Head>
                 <body id="canvas">
                     <Main />
-                    <NextScript />
+                    <DeferNextScript />
                     <Script
                         type=""
                         src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
