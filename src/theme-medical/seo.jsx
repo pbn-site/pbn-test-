@@ -10,13 +10,44 @@ const SEO = ({ title, description, keywords }) => {
             <title>{title}</title>
             <meta name="keywords" content={keywords} />
             <meta name="description" content={description} />
-
-            <link href="css/main.css" rel="stylesheet" type="text/css" />
-            <link href="css/style.css" rel="stylesheet" type="text/css" />
-            <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+            {/* <link href="css/main.css" rel="stylesheet" type="text/css" />
+             */}
+            <link
+                href="css/main.css"
+                rel="stylesheet"
+                type="text/css"
+                media="print"
+                onload="this.media='all'"
+            />
+            <link
+                href="css/style.css"
+                rel="stylesheet"
+                type="text/css"
+                media="print"
+                onload="this.media='all'"
+            />
+            <link
+                href="css/responsive.css"
+                rel="stylesheet"
+                type="text/css"
+                media="print"
+                onload="this.media='all'"
+            />
             {/* <link href="css/animate.css" rel="stylesheet" type="text/css" /> */}
-            <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-            <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+            <link
+                href="css/bootstrap.min.css"
+                rel="stylesheet"
+                type="text/css"
+                media="print"
+                onload="this.media='all'"
+            />
+            <link
+                href="css/font-awesome.min.css"
+                rel="stylesheet"
+                type="text/css"
+                media="print"
+                onload="this.media='all'"
+            />
             {/* <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" /> */}
             {/* <link
                 href="http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300"
