@@ -1,5 +1,6 @@
 import React from "react";
 import { IPost } from "../../models/Post";
+import { getFullPathAsset } from "../../utils";
 import ImageComponent from "../common/Image";
 
 const PostContentRight = ({ post }: { post: IPost }) => {
@@ -7,9 +8,12 @@ const PostContentRight = ({ post }: { post: IPost }) => {
         <li className="row">
             <div className="col-md-7 text-center">
                 <div className="post-img">
-                    {/* <ImageComponent src="images/blog-img-large-1.jpg" className="img-responsive" /> */}
                     <ImageComponent
-                        src={!!post.image ? post.image : "images/blog-img-large-1.jpg"}
+                        src={
+                            !!post.image
+                                ? post.image
+                                : getFullPathAsset("images/blog-img-large-1.webp")
+                        }
                         className="img-responsive"
                     />
                 </div>

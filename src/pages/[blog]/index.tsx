@@ -1,7 +1,5 @@
 import { GetStaticPaths } from "next";
 import React from "react";
-import Layout from "../../components/layout";
-import Post from "../../components/post";
 import { IPost } from "../../models/Post";
 import ThemeMedicalSingle from "../../theme-medical/single-page";
 import { convertToJSONObject } from "../../utils";

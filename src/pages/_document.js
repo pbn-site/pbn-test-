@@ -13,6 +13,21 @@ class MyDocument extends Document {
                 <body id="canvas">
                     <Main />
                     <NextScript />
+                    <Script
+                        type=""
+                        src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+                    />
+                    <Script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
+                    <Script src="js/jquery-1.11.0.min.js" />
+                    <Script src="js/bootstrap.min.js" />
+                    {/* <Script src="js/jquery.superslides.js" /> */}
+                    {/* <Script src="js/masonry.pkgd.min.js" /> */}
+                    {/* <Script src="js/jquery.stellar.min.js" /> */}
+                    {/* <Script src="js/jquery-ui-1.10.3.custom.js" /> */}
+                    {/* <Script src="js/jquery.magnific-popup.min.js" /> */}
+                    {/* <Script src="js/jquery.isotope.min.js" /> */}
+                    {/* <Script src="js/jquery.flexslider-min.js" /> */}
+                    {/* <Script src="js/jquery.downCount.js" /> */}
                     {/* <Script
                         async
                         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}

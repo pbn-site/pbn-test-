@@ -1,8 +1,7 @@
-import { Container, Grid, TextField, useMediaQuery } from "@mui/material";
-import Link from "next/link";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
+import { getFullPathAsset } from "../../utils";
 import ImageComponent from "../common/Image";
-import styles from "./Footer.module.scss";
 const Footer = () => {
     const isMobile = useMediaQuery("(max-width:768px)");
 
@@ -20,36 +19,24 @@ const Footer = () => {
                                         @EnvatoMarket by themefore
                                         <a href="#."> http://t.co/we8Kf0</a> */}
                                     </p>
-                                    <span className="date">
-                                        {" "}
-                                        - Thursday April 9, 2015
-                                    </span>
+                                    <span className="date"> - Thursday April 9, 2015</span>
                                 </li>
 
                                 <li>
                                     <p>
-                                        <span>@medikal</span> In hendrerit in
-                                        molestie consequat in{" "}
+                                        <span>@medikal</span> In hendrerit in molestie consequat in{" "}
                                         <a href="#."> http://t.co/we8Kf0</a>
                                     </p>
-                                    <span className="date">
-                                        {" "}
-                                        - Thursday April 9, 2015
-                                    </span>
+                                    <span className="date"> - Thursday April 9, 2015</span>
                                 </li>
 
                                 <li>
                                     <p>
-                                        <span>@medikal</span> Duis autem vel eum
-                                        iriure
-                                        <span>@medikal</span> dolor in hendrerit
-                                        in molestie consequat{" "}
-                                        <a href="#."> http://t.co/we8Kf0</a>
+                                        <span>@medikal</span> Duis autem vel eum iriure
+                                        <span>@medikal</span> dolor in hendrerit in molestie
+                                        consequat <a href="#."> http://t.co/we8Kf0</a>
                                     </p>
-                                    <span className="date">
-                                        {" "}
-                                        - Thursday April 9, 2015
-                                    </span>
+                                    <span className="date"> - Thursday April 9, 2015</span>
                                 </li>
                             </ul>
                         </div>
@@ -57,12 +44,11 @@ const Footer = () => {
 
                     <div className="col-md-6">
                         <div className="small-info">
-                            <ImageComponent src="images/logo-white.png" />
+                            <ImageComponent src={getFullPathAsset("images/logo-white.png")} />
                             <p>
-                                We work in a friendly and efficient using the
-                                latest technologies and sharing our expertise to
-                                make a diagnosis and implement cutting-edge
-                                therapies.
+                                We work in a friendly and efficient using the latest technologies
+                                and sharing our expertise to make a diagnosis and implement
+                                cutting-edge therapies.
                             </p>
                             <ul className="social_icons">
                                 <li className="facebook">
@@ -83,11 +69,7 @@ const Footer = () => {
                             </ul>
                             <h5>register newsletter</h5>
                             <form>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email here"
-                                    required
-                                />
+                                <input type="email" placeholder="Enter your email here" required />
                                 <button type="submit"> Subscribe</button>
                             </form>
                         </div>

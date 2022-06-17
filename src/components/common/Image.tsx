@@ -20,16 +20,20 @@ const ImageComponent = ({
     return (
         <Image
             className={className ?? " "}
-            alt={alt}
-            src={getFullPathAsset(src)}
+            alt={alt ?? "image"}
+            src={src}
             onLoadingComplete={(e) => {
                 setWidth(e.naturalWidth);
                 setHeight(e.naturalHeight);
             }}
-            loader={() => getFullPathAsset(src)}
+            loader={() => src}
             width={widthProps ?? width}
             height={heightProps ?? height}
             objectFit="cover"
+            style={{
+                width: "100%",
+                height: "100%",
+            }}
         />
     );
 };
