@@ -34,7 +34,7 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                     <section className="blog blog-pages">
                         <div className="container">
                             <ul>
-                                {posts.map((post: IPost, index: number) => {
+                                {posts?.map((post: IPost, index: number) => {
                                     if (index % 2 == 1) {
                                         return <PostContentLeft post={post} />;
                                     }

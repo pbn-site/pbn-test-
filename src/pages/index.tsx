@@ -44,24 +44,15 @@ const Page = ({ posts }: { posts: IPost[] }) => {
                         </div>
                     </Container>
                 </div>
-                {/* <Page>
-        <Pagination
-            prevPagePath={prevPagePath}
-            nextPagePath={nextPagePath}
-            hasPrevPage={hasPrevPage}
-            hasNextPage={hasNextPage}
-        />
-    </Page> */}
             </Layout>
         );
     }
     return <ThemeMedical posts={posts} />;
-
-    // return <div>{ReactHtmlParser(contentHTML)}</div>;
 };
 
 export const getStaticProps = async (context: any) => {
     let posts = await readAllPost();
+
     // let appInfo = getAppInfo(appNameId);
     // let listPractice = await getListTopicAPI(appInfo.appId);
 
@@ -73,6 +64,7 @@ export const getStaticProps = async (context: any) => {
     // let homeSeoContent = await getHomeSeoContentApi(
     //     getAppNameFromAppNameId(appInfo.appNameId) + "-home-seo-content"
     // );
+
     return convertToJSONObject({
         props: {
             posts: posts,
