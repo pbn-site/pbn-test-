@@ -1,119 +1,160 @@
+import { Button, TextField } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import { getFullPathAsset } from "../../utils";
 import ImageComponent from "../common/Image";
+import styles from './Footer.module.scss'
 const Footer = () => {
     const isMobile = useMediaQuery("(max-width:768px)");
 
     return (
-        <footer>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3">
-                        <div className="latest-tweet">
-                            <h5>Latest tweets</h5>
-                            <ul>
-                                <li>
-                                    <p>
-                                        {/* <span>@medikal</span> Sweets and Bakers WordPress Theme' on
-                                        @EnvatoMarket by themefore
-                                        <a href="#."> http://t.co/we8Kf0</a> */}
-                                    </p>
-                                    <span className="date"> - Thursday April 9, 2015</span>
-                                </li>
-
-                                <li>
-                                    <p>
-                                        <span>@medikal</span> In hendrerit in molestie consequat in{" "}
-                                        <a href="#."> http://t.co/we8Kf0</a>
-                                    </p>
-                                    <span className="date"> - Thursday April 9, 2015</span>
-                                </li>
-
-                                <li>
-                                    <p>
-                                        <span>@medikal</span> Duis autem vel eum iriure
-                                        <span>@medikal</span> dolor in hendrerit in molestie
-                                        consequat <a href="#."> http://t.co/we8Kf0</a>
-                                    </p>
-                                    <span className="date"> - Thursday April 9, 2015</span>
-                                </li>
-                            </ul>
+        <footer className={styles.background}>
+            <div className={`container ${styles.container}`}>
+                <div className={`row ${styles.row_1}`}>
+                    <div className="col-md-5">
+                        <div className={`logo ${styles.logo_footer}`}>
+                            <a href='/'>
+                                <ImageComponent
+                                src={getFullPathAsset('images/logo-main.png')}
+                                />
+                            </a>
                         </div>
-                    </div>
-
-                    <div className="col-md-6">
-                        <div className="small-info">
-                            <ImageComponent src={getFullPathAsset("images/logo-white.png")} />
-                            <p>
-                                We work in a friendly and efficient using the latest technologies
-                                and sharing our expertise to make a diagnosis and implement
-                                cutting-edge therapies.
-                            </p>
-                            <ul className="social_icons">
-                                <li className="facebook">
-                                    <a href="#.">
-                                        <i className="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li className="twitter">
-                                    <a href="#.">
-                                        <i className="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li className="linkedin">
-                                    <a href="#.">
-                                        <i className="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <h5>register newsletter</h5>
-                            <form>
-                                <input type="email" placeholder="Enter your email here" required />
-                                <button type="submit"> Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div className="col-md-3">
-                        <div className="links text-right">
-                            <h5>Patient Guide</h5>
-                            <ul>
-                                <li>
-                                    <a href="#."> Choosing a doctor</a>
-                                </li>
-                                <li>
-                                    <a href="#."> Health journals</a>
-                                </li>
-                                <li>
-                                    <a href="#."> Insurance converage</a>
-                                </li>
-                                <li>
-                                    <a href="#."> Talking to your doctor</a>
-                                </li>
-                                <li>
-                                    <a href="#."> Medikal error</a>
-                                </li>
-                            </ul>
-
-                            <div className="timing">
-                                <h5>opening hours</h5>
-                                <p>
-                                    Mon to Fri <span> 8:00 am to 7:00pm</span>
-                                </p>
-                                <p>
-                                    Sun & Sat <span>9:00 am to 5:00pm</span>
-                                </p>
-                            </div>
-                        </div>
+                        <p className={styles.text_under_logo}>Lorem ipsum dolor sit amet consectetur</p>
                     </div>
                 </div>
             </div>
-
-            <div className="rights">
-                <p>© 2015 Medikal. Made with by M_Adnan </p>
-            </div>
         </footer>
+        // <footer className={styles.background}>
+        //     <div className={`container ${styles.container}`}>
+        //         <div className={`row ${styles.row_1}`}>
+        //             <div className="col-md-5">
+        //                 <div className={`logo ${styles.logo_footer}`}>
+        //                     <a href='/'>
+        //                         <ImageComponent
+        //                         src={getFullPathAsset('images/logo-main.png')}
+        //                         />
+        //                     </a>
+        //                 </div>
+        //                 <ImageComponent
+        //                     src={getFullPathAsset('images/cert.png')}
+        //                 />
+        //             </div>
+        //             <div className="col-md-3">
+        //                 <h4 className={styles.header_link}>Company</h4>
+        //                 <ul>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> About</a>
+        //                         </h3>
+        //                     </li>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> Contact</a>
+        //                         </h3>
+        //                     </li>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> Privacy</a>
+        //                         </h3>
+        //                     </li>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> Support</a>
+        //                         </h3>
+        //                     </li>
+        //                 </ul>
+        //             </div>
+        //             <div className="col-md-3">
+        //                 <h4 className={styles.header_link}>Company</h4>
+        //                 <ul>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> About</a>
+        //                         </h3>
+        //                     </li>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> Contact</a>
+        //                         </h3>
+        //                     </li>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> Privacy</a>
+        //                         </h3>
+        //                     </li>
+        //                     <li>
+        //                         <h3>
+        //                             <a href="#."> Support</a>
+        //                         </h3>
+        //                     </li>
+        //                 </ul>
+        //             </div>
+        //             {/* <div className="col-md-1">
+
+        //             </div> */}
+        //         </div>
+
+        //         <div className={`row ${styles.row_2}`}>
+        //             <div className="col-md-10">
+        //                 <ImageComponent
+        //                     src={getFullPathAsset('images/mailbox.png')}
+        //                 />
+        //                 <div className={styles.subscribe_title}>
+        //                     <ImageComponent
+        //                         src={getFullPathAsset('images/subscribe.png')}
+        //                     />
+        //                     <p>Be first to know about the latest update and access free materials only for subscribers!</p>
+        //                 </div>
+        //                 <div className={styles.subscribe_input}>
+        //                     <div className={styles.input_field}>
+        //                         <TextField 
+        //                             fullWidth 
+        //                             className={styles.input}
+        //                             label="Your Email Address" 
+        //                             variant="standard"
+        //                             InputLabelProps={{
+        //                                 className: styles.input_label
+        //                             }}
+        //                         />
+        //                         <TextField 
+        //                             fullWidth 
+        //                             className={styles.input}
+        //                             label="Type your name" 
+        //                             variant="standard"
+        //                             InputLabelProps={{
+        //                                 className: styles.input_label
+        //                             }}
+        //                         />
+        //                     </div>
+        //                     <div className={styles.btn_filed}>
+        //                         <Button
+        //                             size="large"
+        //                             variant="contained"
+        //                             className={styles.btn}
+        //                         >Sent</Button>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //             <div className={`col-md-2 ${styles.group_icons}`}>
+        //                 <a className={styles.icon} href='/'>
+        //                     <ImageComponent
+        //                         src={getFullPathAsset('images/twitter.png')}
+        //                     />
+        //                 </a>
+        //                 <a className={styles.icon} href='/'>
+        //                     <ImageComponent
+        //                         src={getFullPathAsset('images/facebook.png')}
+        //                     />
+        //                 </a>
+        //                 <a className={styles.icon} href='/'>
+        //                     <ImageComponent
+        //                         src={getFullPathAsset('images/youtube.png')}
+        //                     />
+        //                 </a>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </footer>
     );
 };
 
