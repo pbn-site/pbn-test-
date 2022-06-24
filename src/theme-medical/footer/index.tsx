@@ -14,7 +14,7 @@ const Footer = () => {
                             <a href="/">
                                 <ImageComponent
                                     src={getFullPathAsset(
-                                        "images/logo-main.png"
+                                        "images/logo-main.webp"
                                     )}
                                 />
                             </a>

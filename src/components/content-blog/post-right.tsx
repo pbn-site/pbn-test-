@@ -13,7 +13,7 @@ const PostContentRight = ({ post }: { post: IPost }) => {
                         src={
                             !!post.image
                                 ? post.image
-                                : getFullPathAsset("images/blog-img.png")
+                                : getFullPathAsset("images/blog-img1.webp")
                         }
                         className={`img-responsive ${styles.blog_image}`}
                     />
