@@ -1,0 +1,32 @@
+.post_img {
+    box-shadow: 0px 12px 34px -11px  #5AB0E3;
+    border-radius: 15px !important;
+}
+
+.post_left{
+    @media screen and (max-width: 990px){
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.content {
+    hr {
+        background-color: rgba(40, 40, 112, 0.24) !important;
+    }
+
+    .date {
+        color: rgba(33, 33, 33, 0.52);
+        font-weight: 500;
+    }
+
+    .btn {
+        border: 1px solid rgba(40, 40, 112, 0.52) !important;
+        color: #282870 !important;
+
+        &:hover {
+            background-color: #282870;
+            color: white!important;
+        }
+    }
+}
