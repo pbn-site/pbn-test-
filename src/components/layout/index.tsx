@@ -11,7 +11,12 @@ interface Props {
     children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children, title, description, socialImage = "" }: Props) => {
+const Layout: React.FC<Props> = ({
+    children,
+    title,
+    description,
+    socialImage = "",
+}: Props) => {
     // const { author, url } = useSiteMetadata();
     // const metaImage = socialImage || author.photo;
     // const metaImageUrl = url + metaImage;
@@ -33,8 +38,13 @@ const Layout: React.FC<Props> = ({ children, title, description, socialImage = "
                     rel="stylesheet"
                 />
             </Helmet>
+            <Header
+                title={title}
+                description={description ?? ""}
+                keywords={""}
+            />
             {children}
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
     );
 };

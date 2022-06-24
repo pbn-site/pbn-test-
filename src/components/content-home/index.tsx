@@ -28,8 +28,13 @@ const ContentHome: React.FC<Props> = ({ posts }: Props) => {
                 />
             )}
             <div className={styles.listItem}>
-                {posts?.map((edge: any, index: number) => (
-                    <FeedDetail key={index} post={edge} className={styles.item} index={index} />
+                {posts.slice(1, 4)?.map((edge: any, index: number) => (
+                    <FeedDetail
+                        key={index}
+                        post={edge}
+                        className={styles.item}
+                        index={index}
+                    />
                 ))}
             </div>
             {posts[posts.length - 1] && (
@@ -56,18 +61,22 @@ const FeedDetail: React.FC<PropsFeedDetail> = ({
                     <h2 className={styles.title}>{post.title}</h2>
                     <p className={styles.description}>
                         {/* {edge.node.frontmatter.description ?? */}
-                        It is a long established fact that a reader will be distracted by the
-                        readable content of a page when looking at its layout. The point of using
+                        It is a long established fact that a reader will be
+                        distracted by the readable content of a page when
+                        looking at its layout. The point of using
                         {/* } */}
                     </p>
                     <div className={styles.meta}>
                         <time
                             className={styles.time}
-                            dateTime={new Date(post.date).toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "long",
-                                day: "2-digit",
-                            })}
+                            dateTime={new Date(post.date).toLocaleDateString(
+                                "en-US",
+                                {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "2-digit",
+                                }
+                            )}
                         >
                             {new Date(post.date).toLocaleDateString("en-US", {
                                 year: "numeric",

@@ -1,8 +1,8 @@
 import React from "react";
 import PostContentRight from "../components/content-blog/post-right";
 import PostContentLeft from "../components/content-blog/postleft";
-import Footer from "../components/footer";
-import Header from "../components/header";
+import Footer from "../theme-medical/footer";
+import Header from "../theme-medical/header";
 import ScrollButton from "../components/scroll-button";
 import { IPost } from "../models/Post";
 import styles from "./Index.module.scss";
@@ -26,9 +26,7 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                             backgroundImage: `url(/images/banner.png)`,
                         }}
                     >
-                        <div
-                            className={`overlay ${styles.homepage_container}`}
-                        >
+                        <div className={`overlay ${styles.homepage_container}`}>
                             <div className={`container ${styles.banner}`}>
                                 <h3>Blog</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -36,25 +34,33 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                         </div>
                     </section>
 
-                    <section 
-                        className="blog blog-pages"
-                        >
-                        <div                        
-                            className= {`container ${styles.blog_container}`}
+                    <section className="blog blog-pages">
+                        <div
+                            className={`container ${styles.blog_container}`}
                             style={{
                                 backgroundImage: `url(/images/background-img.png)`,
-                            }}    
+                            }}
                         >
-                            <div
-                                className={styles.overlay}
-                            >
+                            <div className={styles.overlay}>
                                 <ul>
-                                    {posts?.map((post: IPost, index: number) => {
-                                        if (index % 2 == 1) {
-                                            return <PostContentLeft key={index} post={post} />;
+                                    {posts?.map(
+                                        (post: IPost, index: number) => {
+                                            if (index % 2 == 1) {
+                                                return (
+                                                    <PostContentLeft
+                                                        key={index}
+                                                        post={post}
+                                                    />
+                                                );
+                                            }
+                                            return (
+                                                <PostContentRight
+                                                    key={index}
+                                                    post={post}
+                                                />
+                                            );
                                         }
-                                        return <PostContentRight key={index} post={post} />;
-                                    })}
+                                    )}
                                 </ul>
                             </div>
                         </div>

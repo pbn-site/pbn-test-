@@ -138,3 +138,110 @@
         }
     }
 }
+
+.background {
+    background-color: #ECECF5;
+    
+    .container {
+        padding-top: 56px;
+        padding-bottom: 56px;
+
+        .row_1 {
+            margin-bottom: 20px;
+
+            .logo_footer{
+                margin-bottom: 20px;
+            }
+
+            .text_under_logo{
+                font-size: 16px;
+                font-weight: 500;
+                color: #282870;
+            }
+
+            .header_link{
+                color: rgba(33, 33, 33, 0.52);
+            }
+        }
+
+        .row_2{
+            .subscribe_title{
+                margin-top: 20px;
+                max-width: 30%;
+    
+                @media screen and (max-width: 1200px) {
+                    max-width: 100%;
+                }
+    
+                p {
+                    color: #212121;
+                }
+            }
+    
+            .subscribe_input{
+                display: flex;
+    
+                .input_field{
+                    width: 46%;
+                    margin-bottom: 5px;
+    
+                    .input {
+                        margin-top: 5px;
+                    }
+    
+                    .input_label{
+                        font-size: 14px;
+                        // line-height: 21px;
+                        color: #212121;
+                        top: -4px;
+                    }
+
+                }
+    
+                .btn_filed {
+                    margin-left: 50px;
+                    display: flex;
+                    align-items: flex-end;
+    
+                    .btn {
+                        background-color: #282870;
+                        font-size: 16px;
+                        text-transform: none;
+                        padding: 8px 34px;
+                        border-radius: 8px;
+                    }
+                }
+
+                @media screen and (max-width: 1200px) {
+                    flex-direction: column;
+
+                    .input_field{
+                        width: 100%;
+                    }
+
+                    .btn_filed {
+                        width: 100%;
+                        margin-left: 0;
+                        margin-top: 10px;
+                    }
+                }
+            }
+    
+            .group_icons{
+                // height: 100%;
+                // display: flex;
+                // flex: 1;
+                margin-top: 180px;
+
+                .icon{
+                    margin-right: 16px;
+                }
+
+                @media screen and (max-width: 1200px) {
+                    margin-top: 40px;
+                }
+            }
+        }
+
+    }
+}
