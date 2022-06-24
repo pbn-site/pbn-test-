@@ -1,8 +1,11 @@
 import React from "react";
 import ImageComponent from "../components/common/Image";
+import Footer from "../components/footer";
 import Header from "../components/header";
+import ScrollButton from "../components/scroll-button";
 import { IPost } from "../models/Post";
 import { getFullPathAsset } from "../utils";
+import styles from './Index.module.scss'
 
 const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
     return (
@@ -15,13 +18,13 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                         className="sub-banner"
                         data-stellar-background-ratio="0.5"
                         style={{
-                            backgroundImage: `url(/images/slider-images/sub-bnr-bg.webp)`,
+                            backgroundImage: `url(/images/banner.png)`,
                         }}
                     >
-                        <div className="overlay">
-                            <div className="container">
+                        <div className={`overlay ${styles.singlePage_container}`}>
+                            <div className={`container ${styles.banner}`}>
                                 <h3>Blog</h3>
-                                <p>Provide useful information on health and wellness</p>
+                                <p>Lorem ipsum dolor sit amet consectetur</p>
 
                                 <ol className="breadcrumb">
                                     <li>
@@ -42,12 +45,12 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                                 <div className="col-sm-12">
                                     <div className="img-single">
                                         <ImageComponent
-                                            className="img-responsive"
+                                            className={`img-responsive ${styles.post_img}`}
                                             src={
                                                 !!post.image
                                                     ? post.image
                                                     : getFullPathAsset(
-                                                          "images/blog-img-large-1.webp"
+                                                          "images/singlePostImg.png"
                                                       )
                                             }
                                             alt=""
@@ -66,6 +69,9 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                         </div>
                     </div>
                 </div>
+
+                <Footer />
+                <ScrollButton />
             </div>
         </>
     );

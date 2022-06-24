@@ -1,8 +1,11 @@
 import React from "react";
 import PostContentRight from "../components/blog/post-right";
 import PostContentLeft from "../components/blog/postleft";
+import Footer from "../components/footer";
 import Header from "../components/header";
+import ScrollButton from "../components/scroll-button";
 import { IPost } from "../models/Post";
+import styles from "./Index.module.scss";
 
 const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
     return (
@@ -20,32 +23,46 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                         className="sub-banner"
                         data-stellar-background-ratio="0.5"
                         style={{
-                            backgroundImage: `url(/images/slider-images/sub-bnr-bg.webp)`,
+                            backgroundImage: `url(/images/banner.png)`,
                         }}
                     >
-                        <div className="overlay">
-                            <div className="container">
+                        <div
+                            className={`overlay ${styles.homepage_container}`}
+                        >
+                            <div className={`container ${styles.banner}`}>
                                 <h3>Blog</h3>
-                                <p>Provide useful information on health and wellness</p>
+                                <p>Lorem ipsum dolor sit amet consectetur</p>
                             </div>
                         </div>
                     </section>
 
-                    <section className="blog blog-pages">
-                        <div className="container">
-                            <ul>
-                                {posts?.map((post: IPost, index: number) => {
-                                    if (index % 2 == 1) {
-                                        return <PostContentLeft post={post} />;
-                                    }
-                                    return <PostContentRight post={post} />;
-                                })}
-                            </ul>
+                    <section 
+                        className="blog blog-pages"
+                        >
+                        <div                        
+                            className= {`container ${styles.blog_container}`}
+                            style={{
+                                backgroundImage: `url(/images/background-img.png)`,
+                            }}    
+                        >
+                            <div
+                                className={styles.overlay}
+                            >
+                                <ul>
+                                    {posts?.map((post: IPost, index: number) => {
+                                        if (index % 2 == 1) {
+                                            return <PostContentLeft key={index} post={post} />;
+                                        }
+                                        return <PostContentRight key={index} post={post} />;
+                                    })}
+                                </ul>
+                            </div>
                         </div>
                     </section>
                 </div>
 
-                {/* <Footer /> */}
+                <Footer />
+                <ScrollButton />
             </div>
         </>
     );

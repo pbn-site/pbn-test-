@@ -100,7 +100,7 @@ export const getFullPathAsset = (path: string) => {
         (process.env.NEXT_PUBLIC_ASSET_PREFIX
             ? process.env.NEXT_PUBLIC_ASSET_PREFIX
             : "") + path;
-    console.log("url ", url);
+    // console.log("url ", url);
 
     return url;
 };

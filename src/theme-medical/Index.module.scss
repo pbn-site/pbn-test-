@@ -1,0 +1,39 @@
+.homepage_container{
+    padding: 80px 0 !important;
+    background: rgba(255,255,255, 0) !important;
+
+}
+
+.singlePage_container{
+    padding: 48px 0 !important;
+    background: rgba(255,255,255, 0) !important;
+}
+
+.banner {
+    h3 {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 60px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    h3, p {
+        color: #282870;
+    }
+}
+
+
+.blog_container{
+    background-repeat: no-repeat;
+    background-position: center 100px;
+}
+
+.post_img{
+    border-radius: 15px;
+}
