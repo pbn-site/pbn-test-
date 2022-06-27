@@ -12,6 +12,12 @@ export const readAllFile = () => {
     });
 };
 
+const IMAGES = [
+    "blog-img1.webp",
+    "blog-img2.webp",
+    "blog-img3.webp",
+    "blog-img4.webp",
+]
 export const readContentFile = async (fileName: string) => {
     const directoryAppInfos = path.join(
         process.cwd(),
@@ -23,7 +29,7 @@ export const readContentFile = async (fileName: string) => {
         content: object.post_content,
         date: object.post_date,
         slug: object.post_name,
-        image: object.post_image
+        image: object.post_image ? object.post_image : `images/${IMAGES[object.ID % IMAGES.length]}`
     });
 
     // const directoryAppInfos = path.join(

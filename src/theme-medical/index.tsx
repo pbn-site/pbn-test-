@@ -23,7 +23,7 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                         className="sub-banner"
                         data-stellar-background-ratio="0.5"
                         style={{
-                            backgroundImage: `url(/images/banner.png)`,
+                            backgroundImage: `url(/images/banner.webp)`,
                         }}
                     >
                         <div className={`overlay ${styles.homepage_container}`}>
@@ -38,7 +38,7 @@ const ThemeMedical = ({ posts }: { posts: IPost[] }) => {
                         <div
                             className={`container ${styles.blog_container}`}
                             style={{
-                                backgroundImage: `url(/images/background-img.png)`,
+                                backgroundImage: `url(/images/background-img.webp)`,
                             }}
                         >
                             <div className={styles.overlay}>

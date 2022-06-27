@@ -26,7 +26,7 @@ const Header = ({
                     <div className="logo">
                         <a href="/">
                             <ImageComponent
-                                src={getFullPathAsset("images/logo-main.png")}
+                                src={getFullPathAsset("images/logo-main.webp")}
                             />
                         </a>
                     </div>

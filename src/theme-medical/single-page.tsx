@@ -1,7 +1,7 @@
 import React from "react";
 import ImageComponent from "../components/common/Image";
-import Footer from "../components/footer";
-import Header from "../components/header";
+import Footer from "../theme-medical/footer";
+import Header from "../theme-medical/header";
 import ScrollButton from "../components/scroll-button";
 import { IPost } from "../models/Post";
 import { getFullPathAsset } from "../utils";
@@ -18,7 +18,7 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                         className="sub-banner"
                         data-stellar-background-ratio="0.5"
                         style={{
-                            backgroundImage: `url(/images/banner.png)`,
+                            backgroundImage: `url(/images/banner.webp)`,
                         }}
                     >
                         <div className={`overlay ${styles.singlePage_container}`}>
@@ -47,11 +47,11 @@ const ThemeMedicalSingle = ({ post }: { post: IPost }) => {
                                         <ImageComponent
                                             className={`img-responsive ${styles.post_img}`}
                                             src={
-                                                !!post.image
-                                                    ? post.image
-                                                    : getFullPathAsset(
-                                                          "images/singlePostImg.png"
-                                                      )
+                                                post.image
+                                                ? post.image
+                                                : getFullPathAsset(
+                                                        "images/blog-img1.webp"
+                                                    )
                                             }
                                             alt=""
                                         />
