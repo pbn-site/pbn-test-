@@ -9,10 +9,12 @@ const Header = ({
     title,
     description,
     keywords,
+    usingFont = false,
 }: {
     title: string;
     description: string;
     keywords: string;
+    usingFont?: boolean;
 }) => {
     const [open, setOpen] = useState(false);
     const isMobile = useMediaQuery("(max-width: 990px)");
@@ -20,7 +22,12 @@ const Header = ({
 
     return (
         <>
-            <SEO title={title} description={description} keywords={""} />
+            <SEO
+                title={title}
+                description={description}
+                keywords={""}
+                usingFont={usingFont}
+            />
             <header>
                 <div className="container">
                     <div className="logo">
