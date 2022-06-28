@@ -16,16 +16,13 @@ const ThemeWorkSheet = ({ posts }: { posts: IPost[] }) => {
                 <Container maxWidth="lg">
                     <div className={styles.homepageContainer}>
                         <div className={styles.left}>
-                            <div className={styles.title}>Worksheet Zone Blog</div>
+                            <h1 className={styles.title}>Worksheet Zone Blog</h1>
                             <div className={styles.text}>
                                 Everything you Need to Know to Get Better on your Learning Progress
                             </div>
                         </div>
                         <div className={styles.right}>
-                            <ImageComponent
-                                src={getFullPathAsset("/images/banner-home.png")}
-                                alt={"banner"}
-                            />
+                            <ImageComponent src={getFullPathAsset("/images/banner-home.png")} alt={"banner"} />
                         </div>
                     </div>
                     <div>
