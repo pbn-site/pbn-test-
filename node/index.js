@@ -200,7 +200,7 @@ const startDeploy = async () => {
         getCategoryName();
     let res = await axios.get(url);
     console.log("res.data.length ", res.data.length);
-    if (res.data.length) {
+    if (res.data.length || FORCE_NEW_DEPLOY) {
         await getAllPost();
     }
 };
