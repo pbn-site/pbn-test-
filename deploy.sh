@@ -11,6 +11,7 @@ if [ -d "$DIR_BLOG" ]; then
     totalFile=$(find "$DIR_BLOG" -maxdepth 1 -type f|wc -l)
     echo "Total file: $totalFile"
     ./build.sh $DOMAIN
+    rm -rf $DIR_BLOG
     # if [[ $totalFile -gt  0 ]]; then
     #     yarn build
     #     pm2 restart $DOMAIN
