@@ -102,7 +102,10 @@ const processGenSiteMap = async () => {
 };
 
 const convertMDTOHTML = async () => {
-    let content = await fs.readFileSync(BASE_PATH + "asvab_study_guide-2.md", "utf-8");
+    let content = await fs.readFileSync(
+        BASE_PATH + "asvab_study_guide-2.md",
+        "utf-8"
+    );
     let contentHTML = content;
     let description = "";
     if (content.includes(TEXT_SPLIT)) {
@@ -110,7 +113,10 @@ const convertMDTOHTML = async () => {
         let infoArr = arr[1].split("\n");
         for (let i = 0; i < infoArr.length; i++) {
             if (infoArr[i].startsWith("description")) {
-                description = infoArr[i].trim().replace("description", "").replace(': "', "");
+                description = infoArr[i]
+                    .trim()
+                    .replace("description", "")
+                    .replace(': "', "");
                 description = description.substring(0, description.length - 1);
             }
         }
@@ -138,7 +144,14 @@ const processDescription = (description, post_name) => {
         // remove one line, starting at the first position
         afterSlug.splice(0, 2);
         // join the array back into a single string
-        return beforSlug.join("\n") + "\n" + 'slug: "' + post_name + '"\n' + afterSlug.join("\n");
+        return (
+            beforSlug.join("\n") +
+            "\n" +
+            'slug: "' +
+            post_name +
+            '"\n' +
+            afterSlug.join("\n")
+        );
     }
     return description;
 };
@@ -151,7 +164,10 @@ const getAllPost = async () => {
     console.log("data ", allData.length);
     for (let i = 0; i < allData.length; i++) {
         let { post_name, post_content } = allData[i];
-        fs.writeFileSync(BASE_PATH + post_name + ".json", JSON.stringify(allData[i]));
+        fs.writeFileSync(
+            BASE_PATH + post_name + ".json",
+            JSON.stringify(allData[i])
+        );
         LIST_URLS.push(post_name);
         // if (allData[i].post_content_filtered) {
         //     fs.writeFileSync(
@@ -184,7 +200,7 @@ const startDeploy = async () => {
         getCategoryName();
     let res = await axios.get(url);
     console.log("res.data.length ", res.data.length);
-    if (res.data.length || true) {
+    if (res.data.length) {
         await getAllPost();
     }
 };
