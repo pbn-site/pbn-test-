@@ -10,10 +10,8 @@ node node/index.js $DOMAIN $FORCE_NEW_DEPLOY
 if [ -d "$DIR_BLOG" ]; then
     totalFile=$(find "$DIR_BLOG" -maxdepth 1 -type f|wc -l)
     echo "Total file: $totalFile"
-    ./build.sh $DOMAIN
-    rm -rf $DIR_BLOG
-    # if [[ $totalFile -gt  0 ]]; then
-    #     yarn build
-    #     pm2 restart $DOMAIN
-    # fi
+    if [[ $totalFile -gt  0 ]]; then
+        ./build.sh $DOMAIN
+        rm -rf $DIR_BLOG
+    fi
 fi
